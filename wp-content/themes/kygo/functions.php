@@ -40,7 +40,7 @@ require get_template_directory() . '/inc/enqueue_scripts.php';
 /*
  * Register all custom post types
  */
-require get_template_directory() . '/inc/albums.php';
+require get_template_directory() . '/inc/song.php';
 require get_template_directory() . '/inc/tours.php';
 
 
