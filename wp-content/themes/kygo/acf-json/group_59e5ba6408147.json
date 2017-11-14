@@ -1,7 +1,58 @@
 {
     "key": "group_59e5ba6408147",
-    "title": "Album",
+    "title": "Songs",
     "fields": [
+        {
+            "key": "field_5a0b7859bc78e",
+            "label": "Type",
+            "name": "type",
+            "type": "select",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Album": "Album",
+                "Single": "Single",
+                "Clip": "Clip"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5a0b7838bc78d",
+            "label": "Album",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Album"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
         {
             "key": "field_59e5ba786acd3",
             "label": "Description",
@@ -132,7 +183,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "album"
+                "value": "song"
             }
         ]
     ],
@@ -146,5 +197,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1509315929
+    "modified": 1510701193
 }

@@ -19,7 +19,6 @@
         </div>
     </div>
 </section>
-<h1>tes</h1>
 <section class="album">
 
 <?php
