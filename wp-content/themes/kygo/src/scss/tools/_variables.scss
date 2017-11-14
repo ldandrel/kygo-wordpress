@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// Fonts
+$main-font: 'Relevant', sans-serif;
+$title-font: 'Noe Display', sans-serif;
+$rustico-font: 'Rustico';
+
+// Colors
+$white: #ffffff;
+
+$black: #000000;
+
+$main-color: #06DEAF;
+$btn-color:#28EFCC;
+$main-color-hover: #28EFCC;
+$text-color:rgba(0, 0, 0, 0.6);
+$border-color:rgba(0, 0, 0, 0.2);
+$background-light-gray:rgba(0, 0, 0, 0.02);
+
+// Box shadow
+$box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);;
+
+// Border radius
+$border-radius: 5px;
+
+// Transition
+$easing: cubic-bezier(0.58, 0.01, 0.41, 1);
+$transition: all 0.3s $easing;
+
+
+// Text shadow
+$text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+
+// Breakpoints
+$xs: 576px;
+$sm: 720px;
+$md: 960px;
+$lg: 1140px;
+$xl: 1400px;
+
+// Z-index
+$zindex: 1;
+$zindex-2: 5;
+$zindex-3: 10;
+$zindex-4: 15;
+$zindex-5: 20;
+$zindex-6: 25;
+$zindex-7: 30;
+$zindex-9: 999;

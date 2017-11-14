@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+// Tools
+@import 'tools/variables';
+@import 'tools/mixins';
+@import 'tools/fonts';
+
+// Vendors
+
+// Base
+@import 'base/normalize';
+@import 'base/base';
+
+
+// Components
+@import 'components/header';
+@import 'components/footer';
+@import 'components/slider';
+
+
+
+
+// Layout
+@import 'layout/home';
+
