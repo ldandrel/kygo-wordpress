@@ -8,8 +8,8 @@
             "name": "type",
             "type": "select",
             "value": null,
-            "instructions": "",
-            "required": 0,
+            "instructions": "Select the music to add",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -30,18 +30,33 @@
             "placeholder": ""
         },
         {
-            "key": "field_5a0b7838bc78d",
-            "label": "Album",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
+            "key": "field_5a0bfce6944fe",
+            "label": "Titre",
+            "name": "title",
+            "type": "text",
+            "value": null,
+            "instructions": "Titre",
+            "required": 1,
             "conditional_logic": [
                 [
                     {
                         "field": "field_5a0b7859bc78e",
                         "operator": "==",
                         "value": "Album"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Single"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Clip"
                     }
                 ]
             ],
@@ -50,8 +65,56 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
-            "endpoint": 0
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a0bfd00944ff",
+            "label": "Type",
+            "name": "type",
+            "type": "taxonomy",
+            "value": null,
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Album"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Single"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Clip"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "type",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
         },
         {
             "key": "field_59e5ba786acd3",
@@ -61,7 +124,15 @@
             "value": null,
             "instructions": "",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Album"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -81,7 +152,22 @@
             "value": null,
             "instructions": "",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Album"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Single"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -106,7 +192,15 @@
             "value": null,
             "instructions": "Add a track",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Album"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -157,6 +251,23 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5a0bfdc794505",
+                    "label": "Soundcloud",
+                    "name": "soundcloud",
+                    "type": "url",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
@@ -168,7 +279,40 @@
             "value": null,
             "instructions": "Add a Itunes link to buy the album",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Album"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5a0bfe1594506",
+            "label": "URL Clip",
+            "name": "url_clip",
+            "type": "url",
+            "value": null,
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5a0b7859bc78e",
+                        "operator": "==",
+                        "value": "Clip"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -193,9 +337,23 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "the_content"
+        "permalink",
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
     ],
     "active": 1,
     "description": "",
-    "modified": 1510701193
+    "modified": 1510735846
 }

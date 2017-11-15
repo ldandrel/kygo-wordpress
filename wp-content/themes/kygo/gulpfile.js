@@ -18,7 +18,7 @@ const gutil = require('gulp-util');
 
 const config = {
     src: 'src/',
-    dist: 'assets/',
+    dist: './',
     port: 8080,
     env: process.env.NODE_ENV === 'production'
 };

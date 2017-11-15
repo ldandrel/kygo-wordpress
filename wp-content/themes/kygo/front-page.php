@@ -19,7 +19,6 @@
         </div>
     </div>
 </section>
-<h1>res</h1>
 <section class="album">
 
 <?php
@@ -169,9 +168,6 @@
 
 
 <section class="music">
-    <div class="music-title">
-        <h1>Music</h1>
-    </div>
 
     <div class="music-banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
         <h2>Music.</h2>

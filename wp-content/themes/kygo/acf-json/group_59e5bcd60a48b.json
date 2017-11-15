@@ -90,7 +90,7 @@
                 "id": ""
             },
             "post_type": [
-                "album"
+                "song"
             ],
             "taxonomy": [],
             "filters": [
@@ -185,7 +185,14 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "7"
+                "value": "36"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "65"
             }
         ]
     ],
@@ -200,5 +207,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1509316699
+    "modified": 1510736105
 }

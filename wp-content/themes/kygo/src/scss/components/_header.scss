@@ -19,7 +19,14 @@
       height: 64px;
       margin: 18px 20px;
       align-items: center;
+
+      .header__right--desktop{
+        display: flex;
+        width: 35vw;
+      }
     }
+
+
   }
 
   .header--mobile{
@@ -38,6 +45,10 @@
       align-items: center;
       margin: 16px 20px;
       height: 48px;
+
+      #menu-language-switcher-1{
+        display: inherit;
+      }
     }
   }
 
@@ -91,17 +102,47 @@
   display: none;
 }
 
-#menu-external-link, #menu-external-link-1{
-  a img {
+#menu-social-links a img, #menu-social-links-1 a img {
     width: 22px !important;
     height: 22px;
+
+}
+
+#menu-language-switcher, #menu-language-switcher-1 {
+
+  width: 50px;
+  @include responsive($md) {
+    justify-content: center;
   }
 
-  li:last-child{
+  li {
+    padding:0 5px;
+    border-right: 1px solid $border-color-bis;
+    &:last-child {
+      border: none;
+      padding-right: 0;
+    }
+
+    &:first-child{
+      padding-left: 0;
+    }
+
+    a{
+      color:$border-color-bis;
+    }
+  }
+  .current-lang a{
+    color:$black !important;
+  }
+}
+
+
+
+
+#menu-external-link-fr li, #menu-external-link-en li {
     border: 1px solid $black;
     border-radius: 5px;
     padding: 10px 20px;
-  }
 }
 
 .header--scrolling{
@@ -147,49 +188,24 @@
         font-size:42px;
       }
 
-      #menu-main-menu-1 {
+      #menu-main-menu-french-1, #menu-main-menu-english-1  {
         height: 65%;
         font-weight: bold;
         flex-direction: column;
       }
 
-      #menu-external-link-1:last-child{
-        flex-direction: row;
-        height: 35%;
-        padding: 5% 40px 0 40px;
+      #menu-external-link-fr-1, #menu-external-link-en-1{
+        height: 20%;
         align-items: center;
-        flex-wrap: wrap;
+      }
 
-        li:last-child{
-          border:none;
-          padding: 0;
-          order:-1;
-          flex-basis: 100%;
-
-        }
+      #menu-social-links-1{
+        height: 15%;
+        width: 80vw;
+        margin: auto;
+        align-items: center;
       }
     }
-
-    .header__title{
-      display: flex;
-      align-content: center;
-      justify-content: center;
-    }
   }
 }
 
-.header__title {
-  width: 100vw;
-  position: absolute;
-  top: 34%;
-  left: 30px;
-  display: none;
-  z-index: -1;
-
-  h1{
-    opacity: 0.3;
-    font-size: 216px;
-    transform: rotate(-50deg);
-    padding: 0 20px;
-  }
-}

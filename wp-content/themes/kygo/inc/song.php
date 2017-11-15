@@ -74,7 +74,7 @@ function kygo_custom_songs() {
         'public' => false,
         'publicly_queryable' => false,
         'show_ui' => true,
-        'show_in_menu' => false,
+        'show_in_menu' => true,
         'show_in_nav_menus' => false,
         'show_in_rest' => false,
         'show_tagcloud' => false,
