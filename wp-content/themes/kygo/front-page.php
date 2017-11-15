@@ -19,6 +19,7 @@
         </div>
     </div>
 </section>
+<h1>res</h1>
 <section class="album">
 
 <?php
