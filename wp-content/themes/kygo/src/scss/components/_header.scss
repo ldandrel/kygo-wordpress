@@ -19,10 +19,22 @@
       height: 64px;
       margin: 18px 20px;
       align-items: center;
+    }
 
-      .header__right--desktop{
-        display: flex;
-        width: 35vw;
+
+    .header__right--desktop{
+      display: flex;
+      width: 35vw;
+      #menu-social-links{
+        justify-content: space-between;
+      }
+
+      #menu-language-switcher{
+        padding: 0 15%;
+      }
+
+      #menu-external-link-en, #menu-external-link-fr{
+        flex:1;
       }
     }
 
@@ -160,6 +172,8 @@
       margin:20px;
       height: 40px;
     }
+
+
   }
 
   .header--mobile .header__top{
