@@ -1,18 +1,19 @@
 .slider{
-  width: 90%;
   position: relative;
-  right: 0;
-  order:-1;
-
-
-  @include responsive($md) {
-    order:0;
-    width: 50%;
-
-  }
+  height:100%;
 
   .slider__wrapper{
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    will-change: transform;
+    transition-property: clip,transform,-webkit-transform;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.8,0,.2,1);
+
   }
 
 
@@ -20,20 +21,6 @@
     height: auto;
     width: 100%;
     border-radius:$border-radius;
-    will-change: transform;
-    transition-property: clip,transform,-webkit-transform;
-    transition-duration: 1s;
-    transition-timing-function: cubic-bezier(.8,0,.2,1);
-
-
-    &:not(:nth-child(1)){
-      position: absolute;
-      top:0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
   }
 
   &:before{

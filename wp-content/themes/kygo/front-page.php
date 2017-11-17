@@ -132,8 +132,8 @@
         </div>
 
 
-        <div class="tour__slider slider">
-                <div class="slider__wrapper">
+        <div class="tour__slider">
+            <div class="slider">
                     <?php
 
                     $images = get_field('slider');
@@ -143,21 +143,18 @@
                         <?php foreach( $images as $image ):
                             $i++;
                         ?>
-
-                            <img data-position="<?= $i - 1 ?>" class="<?= (($i == 1) ? 'is-active' : '') ?>" src="<?= $image['sizes']['large']; ?>" alt="<?=$image['alt']?>">
+                        <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'is-active' : '') ?>">
+                            <img src="<?= $image['sizes']['large']; ?>" alt="<?=$image['alt']?>">
+                        </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
+
+                  <div class="tour-photo-controls slider__controls">
+                    <p><strong>01</strong> | <?= sprintf("%02d", count($images)) ?></p>
+                    <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
+                    <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
+                    <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
                 </div>
-
-
-              <div class="tour-photo-controls slider__controls">
-                <p><strong>01</strong> | <?= sprintf("%02d", count($images)) ?></p>
-                <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
-                <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
-                <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
-
-
-
             </div>
         </div>
     </div>
@@ -166,7 +163,7 @@
 <div class="tour-background"></div>
 
 
-
+<!--
 <section class="music">
 
     <div class="music-banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
@@ -203,6 +200,6 @@
     </div>
 </section>
 
-
+-->
 
 <?php get_footer(); ?>

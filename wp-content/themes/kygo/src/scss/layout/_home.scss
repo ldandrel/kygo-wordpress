@@ -160,6 +160,7 @@
   height: 80vh;
   margin-top:100px;
   display:flex;
+  position:relative;
   flex-flow:column wrap;
   justify-content:center;
   align-content:space-between;
@@ -195,6 +196,15 @@
       a {
         margin-top: 30px;
       }
+    }
+
+    .tour__slider{
+      width: 50%;
+      height:525px;
+      position:absolute;
+      top: 106px;
+      right: 0;
+      bottom: 0;
     }
 
 
