@@ -1,5 +1,12 @@
 	
-	<footer >
+	<footer class="footer">
+        <div class="footer__socials">
+            <h2>Follow Kygo</h2>
+            <?php wp_nav_menu(array(
+                'container' => '',
+                'theme_location'=>'socials'
+            )); ?>
+        </div>
 	</footer>
     <script type="text/javascript">
         let page = '<?= get_queried_object()->post_title; ?>';

@@ -51,6 +51,10 @@ a {
 	transition: $transition;
 	cursor: pointer;
 
+	&:hover{
+		color:$main-color;
+	}
+
 
 }
 
