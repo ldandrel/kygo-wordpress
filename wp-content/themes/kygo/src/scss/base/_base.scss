@@ -15,10 +15,14 @@ body{
 
 h1 {
 	font-family: $rustico-font;
-	font-size: 29.75rem;
 	background: -webkit-linear-gradient(180deg, #30DBFF 5%, rgba(41, 255, 9, 0.3) 80%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	font-size: 7.25rem;
+	@include responsive($md){
+		font-size: 29.75rem;
+	}
 }
 
 h2 {

@@ -19,7 +19,10 @@
         </div>
     </div>
 </section>
+
+
 <section class="album">
+
 
 <?php
     $lastAlbum = get_field('last_album');
@@ -29,20 +32,23 @@
         foreach( $lastAlbum as $p ):
 
         $image = get_field('picture', $p->ID);
+        ?>
 
-        if( !empty($image) ): ?>
-            <div class="album__img">
-                <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">
-            </div>
-        <?php endif; ?>
-
-
-    
         <div class="album__title">
             <h2><?= get_the_title( $p->ID ); ?> is out now.</h2>
         </div>
 
+        <?php if( !empty($image) ): ?>
+            <div class="album__img">
+                <div>
+                    <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">
+                </div>
+            </div>
+        <?php endif; ?>
 
+
+
+        <div>
         <div class="album__description">
             <p>
                 <?= get_post_field('description', $p->ID)?>
@@ -64,6 +70,7 @@
                 endif;
                 ?>
             </ol>
+        </div>
         </div>
 
 
@@ -96,20 +103,21 @@
             $query = new WP_Query( $args );
             $json = array();
 
-            foreach ($query->posts as $tour){
-                if( have_rows('locations', $tour->ID) ){
-                    while ( have_rows('locations', $tour->ID)) {
-                        the_row();
-                        $city = get_sub_field('city');
+            if($query->posts):
+                foreach ($query->posts as $tour) {
+                    if (have_rows('locations', $tour->ID)) {
+                        while (have_rows('locations', $tour->ID)) {
+                            the_row();
+                            $city = get_sub_field('city');
 
-                        array_push($json,[
-                            'city' => $city['address'],
-                            'date' => get_sub_field('date')
-                        ]);
+                            array_push($json, [
+                                'city' => $city['address'],
+                                'date' => get_sub_field('date')
+                            ]);
 
+                        }
                     }
                 }
-            }
 
             $rand_keys = array_rand($json, 3);
 
@@ -125,6 +133,7 @@
                         </li>
                     <?php endfor; ?>
                 </ul>
+            <?php endif; ?>
 
                 <a href="<?= get_permalink( get_page_by_title( 'tour' ) ) ?>" class="btn-kygo">
                     All dates
@@ -137,14 +146,15 @@
                     <?php
 
                     $images = get_field('slider');
-                    if( $images ):
+                if( $images ):
                         $i = 0;
                         ?>
                         <?php foreach( $images as $image ):
                             $i++;
+
                         ?>
-                        <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'is-active' : '') ?>">
-                            <img src="<?= $image['sizes']['large']; ?>" alt="<?=$image['alt']?>">
+                        <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'active' : '')?><?=(($i == 2) ? 'next' : '') ?>">
+                            <img src="<?= $image['sizes']['large']; ?>" srcset="<?= $image['sizes']['medium']; ?> 320w" alt="<?=$image['alt']?>">
                         </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -163,9 +173,8 @@
 <div class="tour-background"></div>
 
 
-<!--
-<section class="music">
 
+<section class="music">
     <div class="music-banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
         <h2>Music.</h2>
         <p>
@@ -177,7 +186,6 @@
         </a>
     </div>
     <div class="clear-both"></div>
-
 </section>
 
 
@@ -200,6 +208,5 @@
     </div>
 </section>
 
--->
 
 <?php get_footer(); ?>
