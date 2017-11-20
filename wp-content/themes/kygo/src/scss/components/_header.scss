@@ -5,6 +5,7 @@
   z-index:$zindex-9;
   background: $white;
   transition: $transition;
+  top: 0;
 
   @include responsive($md){
     height: 100px;
