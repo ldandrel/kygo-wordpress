@@ -4,24 +4,34 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php get_header();
+
+$query = new WP_Query(array(
+    'post_type' => 'tour',
+    'post_status' => 'publish',
+    'numberposts' => -1
+
+));
 
 
-<?php /*if( have_rows('locations') ): ?>
-    <div class="acf-map">
-        <?php while ( have_rows('locations') ) : the_row();
+?>
 
-            $location = get_sub_field('city');
 
-            ?>
+<div class="map">
+    <?php foreach($query->posts as $post):?>
+        <?php while ( have_rows('locations', $post->id) ) : the_row();
+             $location = get_sub_field('city'); ?>
+
             <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
                 <h4><?php the_sub_field('title'); ?></h4>
                 <p class="address"><?php echo $location['address']; ?></p>
                 <p><?php the_sub_field('description'); ?></p>
             </div>
         <?php endwhile; ?>
-    </div>
-<?php endif; */ ?>
+    <?php endforeach; ?>
+</div>
+
+<?php wp_reset_query(); ?>
 
 
 <section class="tour">
