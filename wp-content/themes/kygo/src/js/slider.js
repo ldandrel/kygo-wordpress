@@ -124,5 +124,11 @@ function pad(n) {
     return (n < 10) ? ("0" + n) : n;
 }
 
+let slider = new Slider(
+    document.querySelector('.slider'),
+    document.querySelector('.slider__controls')
+)
 
-export default Slider;
+setInterval(() => {
+    slider.next()
+}, 3000)

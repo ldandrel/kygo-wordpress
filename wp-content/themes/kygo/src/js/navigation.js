@@ -96,4 +96,8 @@ class Navigation {
     }
 }
 
-export default Navigation;
+let navigation = new Navigation(
+    document.querySelector('.header'),
+    document.querySelector('.header__toggle-nav'),
+)
+
