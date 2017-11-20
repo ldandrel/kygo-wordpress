@@ -33,7 +33,7 @@
             <h2 class="news-header__title"><?php the_title(); ?></h2>
             <div class="news-header__description"><?php the_field('description') ?></div>
             <div class="news-header__date"><?php the_date(); ?></div>
-            <a class="news-header__more btn-kygo" href="<?php the_permalink(); ?>"></a>
+            <a class="news-header__more btn-kygo" href="<?php the_permalink(); ?>">Read more</a>
         </div>
 
         <?php
