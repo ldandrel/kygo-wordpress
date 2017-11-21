@@ -48,9 +48,21 @@ $query = new WP_Query(array(
         </div>
         <div class="popup__content">
             <h3>Paris, France</h3>
-            <p>Zenith</p>
-            <p>28 novembre 2017</p>
-            <a href="" class="btn-kygo">Buy Tickets</a>
+            <div class="popup__date">
+                <span>
+                    <strong>Zenith</strong>
+                    <p>14 FEV. 2017</p>
+                </span>
+                <a href="" class="btn-kygo">Buy Tickets</a>
+            </div>
+            <div class="popup__date">
+                <span>
+                    <strong>Zenith</strong>
+                    <p>14 FEV. 2017</p>
+                </span>
+                <a href="" class="btn-kygo">Buy Tickets</a>
+            </div>
+
         </div>
     </div>
 </section>
