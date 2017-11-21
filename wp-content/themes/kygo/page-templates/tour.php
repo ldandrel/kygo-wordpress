@@ -23,9 +23,18 @@ $query = new WP_Query(array(
              $location = get_sub_field('city'); ?>
 
             <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-                <h4><?php the_sub_field('title'); ?></h4>
-                <p class="address"><?php echo $location['address']; ?></p>
-                <p><?php the_sub_field('description'); ?></p>
+                <?php if( have_rows('show') ):
+                    while ( have_rows('show') ) : the_row(); ?>
+                        <p class="address"><?php echo $location['address']; ?></p>
+                        <h4><?php the_sub_field('theater'); ?></h4>
+                        <p><?php the_sub_field('date'); ?></p>
+                        <?php if(!get_sub_field('sold_out')): ?>
+                            <a href="<?php the_sub_field('tickets'); ?>" class="btn-kygo">Buy Tickets</a>
+                        <?php else: ?>
+                            <span id="sold_out">Sold out</span>
+                        <?php endif; ?>
+                        <?php endwhile;
+                endif; ?>
             </div>
         <?php endwhile; ?>
     <?php endforeach; ?>

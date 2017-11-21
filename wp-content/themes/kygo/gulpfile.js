@@ -21,7 +21,7 @@ let config = {
 
 gulp.task('liveserver', () => {
     browserSync.init({
-        proxy: 'http://localhost:8888/h3/kygo_wordpress/',
+        proxy: 'kygo.local',
         notify: false
     });
 });
@@ -102,6 +102,6 @@ gulp.task('watch', () => {
     gulp.watch(config.src + 'font/*', ['fonts']);
 });
 
-gulp.task('build', ['sass', 'javascript', 'images', 'fonts'], () => {});
+gulp.task('build', ['sass', 'javascript'], () => {});
 
 gulp.task('default', ['build', 'liveserver', 'watch'], () => {});

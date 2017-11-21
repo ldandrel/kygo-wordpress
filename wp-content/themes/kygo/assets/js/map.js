@@ -41,18 +41,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(Map, [{
         key: "init",
         value: function init(map_container, markers) {
+
+          var style = require('./map.json');
+
+          var map = new google.maps.Map(map_container, {
+            center: new google.maps.LatLng(37.4419, -122.1419),
+            zoom: 4,
+            styles: style,
+            mapTypeControl: false,
+            fullscreenControl: false,
+            streetViewControl: false,
+            zoomControl: false
+          });
+
           var _iteratorNormalCompletion = true;
           var _didIteratorError = false;
           var _iteratorError = undefined;
 
           try {
-
             for (var _iterator = markers.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
               var _step$value = _slicedToArray(_step.value, 2),
                   index = _step$value[0],
                   marker = _step$value[1];
 
-              this.addMarker(marker);
+              console.log(marker.innerHTML);
+              this.addMarker(marker, map);
             }
           } catch (err) {
             _didIteratorError = true;
@@ -68,17 +81,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }
           }
-
-          var style = require('./map.json');
-
-          var map = new google.maps.Map(map_container, {
-            zoom: 16,
-            styles: style,
-            mapTypeControl: false,
-            fullscreenControl: false,
-            streetViewControl: false,
-            zoomControl: false
-          });
         }
 
         /*
@@ -89,7 +91,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       }, {
         key: "addMarker",
-        value: function addMarker($marker) {
+        value: function addMarker($marker, map) {
 
           var latlng = new google.maps.LatLng(parseFloat($marker.getAttribute('data-lat')), parseFloat($marker.getAttribute('data-lng')));
 
@@ -97,6 +99,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             position: latlng,
             map: map
           });
+
+          if ($marker.innerHTML) {
+            // create info window
+            var infowindow = new google.maps.InfoWindow({
+              content: $marker.innerHTML
+            });
+
+            // show info window when marker is clicked
+            google.maps.event.addListener(marker, 'click', function () {
+
+              infowindow.open(map, marker);
+            });
+          }
         }
       }]);
 

@@ -1,7 +1,4 @@
 
-function initMap() {
-    console.log(google)
-}
 /*
 
 

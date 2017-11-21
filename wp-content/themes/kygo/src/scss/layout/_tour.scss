@@ -1,14 +1,27 @@
 .map{
   width: 100vw;
-  height: 300px;
+  margin-top:15vh;
+
+  @include responsive($md){
+    height: 70vh;
+  }
+
+  #iw-container  .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: #48b5e9;
+    color: white;
+    border-radius: $border-radius;
+  }
 }
 
 
 
 
 .tour {
-  position: absolute;
-  margin-top: 150px;
+  margin-top: 56px;
 
   @include responsive($md){
     padding:0 45px;
