@@ -2,15 +2,14 @@
 
   .news-header {
     background: $background-light-gray;
+    display: flex;
 
     .news-header__left {
       display: inline-block;
-      width: 40vw;
     }
 
     .news-header__right {
       display: inline-block;
-      width: 40vw;
 
       .news-header__title {
         margin-top: 15vh;
