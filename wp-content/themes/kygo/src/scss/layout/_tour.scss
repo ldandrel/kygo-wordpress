@@ -25,11 +25,31 @@
     .popup__close{
       cursor: pointer;
       text-align: right;
-      margin: 16px;
+      margin: 16px 16px 0 0;
+
     }
 
     .popup__content{
-      
+      padding:6px 48px 40px 48px;
+      .popup__date{
+        display: flex;
+        padding:18px 0;
+        border-bottom: 1px solid $border-color;
+
+        &:last-child{
+          border-bottom: none;
+        }
+
+        a{
+          min-width: 120px;
+        }
+
+
+        span {
+          width: 70%;
+        }
+
+      }
     }
   }
 
