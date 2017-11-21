@@ -25,13 +25,14 @@
         ?>
 
         <div class="news-header__left">
-            <div class="news-header__image-deco"></div>
-            <img class="news-header__image" src="<?= get_the_post_thumbnail_url(); ?>" alt="thumbnail">
+            <div class="news-header__image-container">
+                <img class="news-header__image" src="<?= get_the_post_thumbnail_url(); ?>" alt="thumbnail">
+            </div>
         </div>
 
         <div class="news-header__right">
             <h2 class="news-header__title"><?php the_title(); ?></h2>
-            <div class="news-header__description"><?php the_field('description') ?></div>
+            <p class="news-header__description"><?php the_field('description') ?></p>
             <div class="news-header__date"><?php the_date(); ?></div>
             <a class="news-header__more btn-kygo" href="<?php the_permalink(); ?>">Read more</a>
         </div>
