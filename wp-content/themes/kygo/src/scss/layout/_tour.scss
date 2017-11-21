@@ -1,21 +1,44 @@
-.map{
+.map-container {
   width: 100vw;
-  margin-top:15vh;
+  margin-top: 15vh;
+  position: relative;
 
-  @include responsive($md){
+  @include responsive($md) {
     height: 70vh;
   }
 
-  #iw-container  .iw-title {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    padding: 10px;
-    background-color: #48b5e9;
-    color: white;
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+
+  .popup-map {
+    position: absolute;
+    width: 35vw;
+    right: -35vw;
+    bottom: 40px;
+    background: $white;
     border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: $transition;
+
+    .popup__close{
+      cursor: pointer;
+      text-align: right;
+      margin: 16px;
+    }
+
+    .popup__content{
+      
+    }
+  }
+
+  .popup-map.is-active{
+    right: 38px;
   }
 }
+
+
 
 
 

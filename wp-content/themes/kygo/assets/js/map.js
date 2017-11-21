@@ -26,9 +26,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var Map = function () {
       function Map(map, markers) {
+        var _this = this;
+
         _classCallCheck(this, Map);
 
-        this.init(map, markers);
+        this.$el = {};
+        this.$el.map = map;
+        this.$el.popup = this.$el.map.parentElement.querySelector('.popup-map');
+        this.$el.closePopup = this.$el.popup.querySelector('.popup__close');
+
+        //this.init(map, markers)
+
+        this.$el.closePopup.addEventListener('click', function () {
+          _this.$el.popup.classList.remove('is-active');
+        });
       }
 
       /*
@@ -45,7 +56,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var style = require('./map.json');
 
           var map = new google.maps.Map(map_container, {
-            center: new google.maps.LatLng(37.4419, -122.1419),
+            center: new google.maps.LatLng(48.157841, 2.526855),
             zoom: 4,
             styles: style,
             mapTypeControl: false,
@@ -64,7 +75,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   index = _step$value[0],
                   marker = _step$value[1];
 
-              console.log(marker.innerHTML);
               this.addMarker(marker, map);
             }
           } catch (err) {
@@ -101,15 +111,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           if ($marker.innerHTML) {
-            // create info window
-            var infowindow = new google.maps.InfoWindow({
-              content: $marker.innerHTML
-            });
+            var popup = this.$el.popup;
 
-            // show info window when marker is clicked
             google.maps.event.addListener(marker, 'click', function () {
-
-              infowindow.open(map, marker);
+              popup.classList.add('is-active');
+              popup.innerHTML = $marker.innerHTML;
             });
           }
         }
@@ -118,7 +124,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return Map;
     }();
 
-    var map = new Map(document.querySelector('.map'), document.querySelectorAll('.marker'));
+    var map = new Map(document.querySelector('.map-container .map'), document.querySelectorAll('.marker'));
   }, { "./map.json": 2 }], 2: [function (require, module, exports) {
     module.exports = [{
       "elementType": "geometry",

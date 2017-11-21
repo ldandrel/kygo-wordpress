@@ -5,8 +5,18 @@
 
 class Map {
     constructor(map, markers) {
+        this.$el = {}
+        this.$el.map = map
+        this.$el.popup = this.$el.map.parentElement.querySelector('.popup-map')
+        this.$el.closePopup = this.$el.popup.querySelector('.popup__close')
 
-        this.init(map, markers)
+
+        //this.init(map, markers)
+
+        this.$el.closePopup.addEventListener('click', () => {
+            this.$el.popup.classList.remove('is-active')
+        })
+
     }
 
 
@@ -23,7 +33,7 @@ class Map {
 
 
         let map = new google.maps.Map(map_container, {
-            center: new google.maps.LatLng(37.4419, -122.1419),
+            center: new google.maps.LatLng(48.157841, 2.526855),
             zoom: 4,
             styles: style,
             mapTypeControl: false,
@@ -33,7 +43,6 @@ class Map {
         });
 
         for(let [index, marker] of markers.entries()) {
-            console.log(marker.innerHTML)
             this.addMarker(marker, map)
         }
 
@@ -50,7 +59,7 @@ class Map {
      */
     addMarker($marker, map) {
 
-        let latlng =  new google.maps.LatLng(parseFloat($marker.getAttribute('data-lat')), parseFloat($marker.getAttribute('data-lng')));
+        let latlng =  new google.maps.LatLng(parseFloat($marker.getAttribute('data-lat')), parseFloat($marker.getAttribute('data-lng')))
 
 
         let marker = new google.maps.Marker({
@@ -62,17 +71,13 @@ class Map {
 
         if( $marker.innerHTML )
         {
-            // create info window
-            var infowindow = new google.maps.InfoWindow({
-                content		: $marker.innerHTML
-            });
+            let popup = this.$el.popup
 
-            // show info window when marker is clicked
-            google.maps.event.addListener(marker, 'click', function() {
+            google.maps.event.addListener(marker, 'click', () => {
+                popup.classList.add('is-active')
+                popup.innerHTML = $marker.innerHTML;
 
-                infowindow.open( map, marker );
-
-            });
+            })
         }
 
 
@@ -81,7 +86,7 @@ class Map {
 }
 
 let map = new Map(
-    document.querySelector('.map'),
+    document.querySelector('.map-container .map'),
     document.querySelectorAll('.marker')
 )
 
