@@ -1,4 +1,7 @@
 
+function closePopup(){
+    document.querySelector('.popup-map').classList.remove('is-active')
+}
 /*
 
 

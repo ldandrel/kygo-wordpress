@@ -14,6 +14,9 @@
     }return s;
 })({ 1: [function (require, module, exports) {
 
+        function closePopup() {
+            document.querySelector('.popup-map').classList.remove('is-active');
+        }
         /*
         
         
@@ -70,5 +73,4 @@
         
         setInterval(ajaxTourList, 5000);
         */
-
     }, {}] }, {}, [1]);

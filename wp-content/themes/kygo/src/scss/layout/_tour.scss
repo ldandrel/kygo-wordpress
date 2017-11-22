@@ -1,6 +1,7 @@
 .map-container {
   width: 100vw;
-  margin-top: 15vh;
+  height: 65vh;
+  margin-top: 100px;
   position: relative;
 
   @include responsive($md) {
@@ -14,25 +15,39 @@
 
   .popup-map {
     position: absolute;
-    width: 35vw;
-    right: -35vw;
-    bottom: 40px;
+    width: 100vw;
+    bottom: 0;
     background: $white;
     border-radius: $border-radius;
-    box-shadow: $box-shadow;
     transition: $transition;
 
+    @include responsive($md){
+      box-shadow: $box-shadow;
+      bottom: 40px;
+      width: 45vw;
+      right: -45vw;
+    }
+
+    @include responsive($lg){
+      width: 40vw;
+      right: -40vw;
+    }
+
     .popup__close{
-      cursor: pointer;
+
       text-align: right;
       margin: 16px 16px 0 0;
-
+      img {
+        cursor: pointer;
+      }
     }
 
     .popup__content{
       padding:6px 48px 40px 48px;
       .popup__date{
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding:18px 0;
         border-bottom: 1px solid $border-color;
 
@@ -41,12 +56,15 @@
         }
 
         a{
-          min-width: 120px;
+          width: 120px;
         }
 
-
-        span {
-          width: 70%;
+        #sold_out{
+          text-transform: uppercase;
+          color: $gray;
+          font-weight: bold;
+          text-align: center;
+          width: 120px;
         }
 
       }
@@ -54,7 +72,10 @@
   }
 
   .popup-map.is-active{
-    right: 38px;
+
+    @include responsive($md) {
+      right: 38px;
+    }
   }
 }
 
@@ -210,4 +231,15 @@
 
 
   }
+}
+
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+  display:none;
+}
+.gmnoprint div {
+  background:none !important;
 }

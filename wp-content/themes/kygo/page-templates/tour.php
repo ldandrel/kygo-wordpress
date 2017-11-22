@@ -17,53 +17,42 @@ $query = new WP_Query(array(
 ?>
 
 <section class="map-container">
+    <img style="display:none;" id="marker" src="<?= get_template_directory_uri() ?>/assets/img/marker.svg" alt="">
+    <img style="display:none;" id="marker-active" src="<?= get_template_directory_uri() ?>/assets/img/marker-active.svg" alt="">
     <div class="map">
         <?php foreach($query->posts as $post):?>
             <?php while ( have_rows('locations', $post->id) ) : the_row();
                  $location = get_sub_field('city'); ?>
 
                 <div class="marker" style="display: none" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-                    <?php if( have_rows('show') ):
-                        while ( have_rows('show') ) : the_row(); ?>
-                            <div class="popup__close">
-                                <img src="<?= get_template_directory_uri() ?>/assets/img/close.svg" alt="close">
-                            </div>
-                            <h4><?php echo $location['address']; ?></h4>
-                            <p><?php the_sub_field('theater'); ?></p>
-                            <p><?php the_sub_field('date'); ?></p>
-                            <?php if(!get_sub_field('sold_out')): ?>
-                                <a href="<?php the_sub_field('tickets'); ?>" class="btn-kygo">Buy Tickets</a>
-                            <?php else: ?>
-                                <span id="sold_out">Sold out</span>
-                            <?php endif; ?>
-                            <?php endwhile;
-                    endif; ?>
+                        <h3><?php echo $location['address']; ?></h3>
+                        <?php if( have_rows('show') ):
+                            while ( have_rows('show') ) : the_row(); ?>
+                                <div class="popup__date">
+                                    <span>
+                                        <strong><?php the_sub_field('theater'); ?></strong>
+                                        <p><?php the_sub_field('date'); ?></p>
+                                    </span>
+                                    <?php if(!get_sub_field('sold_out')): ?>
+                                        <a href="<?php the_sub_field('tickets'); ?>" class="btn-kygo">Buy Tickets</a>
+                                    <?php else: ?>
+                                        <span id="sold_out">Sold out</span>
+                                    <?php endif; ?>
+                                </div>
+                                <?php endwhile;
+                        endif; ?>
+
                 </div>
             <?php endwhile; ?>
         <?php endforeach; ?>
     </div>
-    <div class="popup-map is-active">
+    <div class="popup-map">
         <div class="popup__close">
             <img src="<?= get_template_directory_uri() ?>/assets/img/close.svg" alt="close">
         </div>
         <div class="popup__content">
-            <h3>Paris, France</h3>
-            <div class="popup__date">
-                <span>
-                    <strong>Zenith</strong>
-                    <p>14 FEV. 2017</p>
-                </span>
-                <a href="" class="btn-kygo">Buy Tickets</a>
-            </div>
-            <div class="popup__date">
-                <span>
-                    <strong>Zenith</strong>
-                    <p>14 FEV. 2017</p>
-                </span>
-                <a href="" class="btn-kygo">Buy Tickets</a>
-            </div>
-
         </div>
+
     </div>
 </section>
 
