@@ -119,9 +119,52 @@
                     ]
                 },
                 {
-                    "key": "field_59de9b90a70d7",
-                    "label": "City",
+                    "key": "field_5a1535aa2a0f9",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "taxonomy",
+                    "value": null,
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "type",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "multiple": 0
+                },
+                {
+                    "key": "field_5a152d55b968c",
+                    "label": "City & Country",
                     "name": "city",
+                    "type": "text",
+                    "value": null,
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "New-York, United Stated",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_59de9b90a70d7",
+                    "label": "Google map location",
+                    "name": "location",
                     "type": "google_map",
                     "value": null,
                     "instructions": "",
@@ -134,7 +177,7 @@
                     },
                     "center_lat": "",
                     "center_lng": "",
-                    "zoom": "",
+                    "zoom": 0,
                     "height": ""
                 }
             ]
@@ -173,5 +216,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1511273006
+    "modified": 1511369631
 }

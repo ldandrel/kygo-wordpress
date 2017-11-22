@@ -13,6 +13,7 @@ function kygo_script_enqueue() {
     }
 
     if( is_page( 'Tour' ) ) {
+        wp_enqueue_script('js-tour', get_template_directory_uri() . '/assets/js/tour.js', array(), '1.0.0', true);
         wp_enqueue_script('js-json', get_template_directory_uri() . '/assets/js/map.json', array(), '1.0.0', true);
         wp_enqueue_script('js-map', get_template_directory_uri() . '/assets/js/map.js', array(), '1.0.0', true);
     }

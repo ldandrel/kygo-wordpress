@@ -10,7 +10,6 @@ $query = new WP_Query(array(
     'post_type' => 'tour',
     'post_status' => 'publish',
     'numberposts' => -1
-
 ));
 
 
@@ -22,10 +21,10 @@ $query = new WP_Query(array(
     <div class="map">
         <?php foreach($query->posts as $post):?>
             <?php while ( have_rows('locations', $post->id) ) : the_row();
-                 $location = get_sub_field('city'); ?>
+                 $location = get_sub_field('location'); ?>
 
                 <div class="marker" style="display: none" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-                        <h3><?php echo $location['address']; ?></h3>
+                        <h3><?php the_sub_field('city'); ?></h3>
                         <?php if( have_rows('show') ):
                             while ( have_rows('show') ) : the_row(); ?>
                                 <div class="popup__date">
@@ -52,7 +51,6 @@ $query = new WP_Query(array(
         </div>
         <div class="popup__content">
         </div>
-
     </div>
 </section>
 
@@ -81,37 +79,26 @@ $query = new WP_Query(array(
     </div>
 
    <div class="tour__results">
-       <div class="list__date">
-           <span>Paris, France</span>
-           <p>5 FEB. 2018</p>
-           <p id="theater">Zénith</p>
-           <a href="#" class="btn-kygo">Buy Tickets</a>
-       </div>
-       <div class="list__date">
-           <span>New-York, United Stated</span>
-           <p>10 FEB. 2018</p>
-           <p id="theater">Lorem Ipsum</p>
-           <a href="#" class="btn-kygo">Buy Tickets</a>
-       </div>
-       <div class="list__date">
-           <span>Paris, France</span>
-           <p>5 FEB. 2018</p>
-           <p id="theater">Zénith</p>
-           <a href="#" class="btn-kygo">Buy Tickets</a>
-       </div>
-       <div class="list__date">
-           <span>Paris, France</span>
-           <p>5 FEB. 2018</p>
-           <p id="theater">Zénith</p>
-           <a href="#" class="btn-kygo">Buy Tickets</a>
-       </div>
-       <div class="list__date">
-           <span>Paris, France</span>
-           <p>5 FEB. 2018</p>
-           <p id="theater">Zénith</p>
-           <a href="#" class="btn-kygo">Buy Tickets</a>
-       </div>
-
+       <?php foreach($query->posts as $post):?>
+           <?php while ( have_rows('locations', $post->id) ) : the_row();
+               $location = get_sub_field('location');
+               $city = get_sub_field('city'); ?>
+                   <?php if( have_rows('show') ):
+                       while ( have_rows('show') ) : the_row(); ?>
+                           <div class="list__date">
+                               <span><?= $city ?></span>
+                               <p><?php the_sub_field('date'); ?></p>
+                               <p id="theater"><?php the_sub_field('theater'); ?></p>
+                               <?php if(!get_sub_field('sold_out')): ?>
+                                   <a href="<?php the_sub_field('tickets'); ?>" class="btn-kygo">Buy Tickets</a>
+                               <?php else: ?>
+                                   <span id="sold_out">Sold out</span>
+                               <?php endif; ?>
+                           </div>
+                       <?php endwhile;
+                   endif; ?>
+           <?php endwhile; ?>
+       <?php endforeach; ?>
    </div>
 </section>
 
