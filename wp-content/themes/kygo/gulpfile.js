@@ -21,7 +21,7 @@ let config = {
 
 gulp.task('liveserver', () => {
     browserSync.init({
-        proxy: 'kygo.local',
+        proxy: 'http://localhost:8888/h3/kygo_wordpress/',
         notify: false
     });
 });
