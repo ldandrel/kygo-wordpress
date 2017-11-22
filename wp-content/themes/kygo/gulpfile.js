@@ -2,87 +2,106 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
+const minify = require('gulp-minify');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
-const source = require('vinyl-source-stream');
 const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const babel = require('gulp-babel');
-const browserify = require('browserify');
-const babelify = require('babelify');
-const uglify = require('gulp-uglify');
-const streamify = require('gulp-streamify');
-const gulpif = require('gulp-if');
-const gutil = require('gulp-util');
+const browserify = require('gulp-browserify');
 
+const reload = browserSync.reload;
 
-const config = {
+let config = {
     src: 'src/',
     dist: './',
-    port: 8080,
-    env: process.env.NODE_ENV === 'production'
+    port: 8080
 };
 
 gulp.task('liveserver', () => {
-//watch files
-    let files = [
-        './assets/app.min.css',
-        './*.php'
-    ]
-
-    //initialize browsersync
-    browserSync.init(files, {
-        //browsersync with a php server
-        proxy: "kygo.local",
+    browserSync.init({
+        proxy: 'kygo.local/',
         notify: false
     });
 });
 
-gulp.task('sass', () =>
-    gulp
+gulp.task('sass', () => {
+    return gulp
         .src(config.src + 'scss/*.scss')
         .pipe(
             plumber({
                 errorHandler: notify.onError('SASS Error: <%= error.message %>')
             })
         )
-        .pipe(gulpif(!config.env, sourcemaps.init()))
+        .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(gulpif(!config.env, sourcemaps.write()))
+        .pipe(sourcemaps.write())
         .pipe(
             autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false
             })
         )
+        .pipe(gulp.dest(config.dist + 'assets/css'))
+        .pipe(reload({ stream: true }));
+});
+
+gulp.task('javascript', () => {
+    return gulp
+        .src(config.src + 'js/*.js')
         .pipe(
-            rename(path => {
-                path.basename += '.min';
+            browserify({
+                debug : true
             })
         )
-        .pipe(gulp.dest(config.dist + 'assets/css'))
-        .pipe(browserSync.stream())
-);
-
-gulp.task('javascript', () =>
-    browserify({
-        entries: config.src + 'js/app.js',
-        debug: true
-    })
-        .transform(babelify, { presets: ['es2015'] })
-        .on('error', gutil.log)
-        .bundle()
-        .on('error', gutil.log)
-        .pipe(source('bundle.js'))
-        .pipe(streamify(uglify()))
+        .pipe(
+            plumber({
+                errorHandler: notify.onError('JS Error: <%= error.message %>')
+            })
+        )
+        .pipe(
+            babel({
+                presets: ['es2015']
+            })
+        )
+        .pipe(
+            minify({
+                ext: {
+                    src: '.js',
+                    min: '.min.js'
+                },
+                ignoreFiles: ['.min.js'],
+                noSource: false
+            })
+        )
         .pipe(gulp.dest(config.dist + 'assets/js'))
-        .pipe(browserSync.stream())
-);
+        .pipe(reload({ stream: true }));
+});
+
+gulp.task('images', () => {
+    return gulp
+        .src(config.src + 'img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest(config.dist + 'assets/img'))
+        .pipe(reload({ stream: true }))
+        .pipe(notify('Image minified: <%= file.relative %>'));
+});
+
+gulp.task('fonts', () => {
+    return gulp
+        .src(config.src + 'font/**/*')
+        .pipe(gulp.dest(config.dist + 'assets/font'))
+        .pipe(reload({ stream: true }));
+});
 
 gulp.task('watch', () => {
     gulp.watch(config.src + 'scss/**/*.scss', ['sass']);
-    gulp.watch(config.src + 'js/*.js', ['javascript']);
+    gulp.watch(config.src + 'js/**/*.js', ['javascript']);
+    gulp.watch(config.src + 'img/**/*', ['images']);
+    gulp.watch(config.src + 'font/*', ['fonts']);
 });
 
 gulp.task('build', ['sass', 'javascript'], () => {});
+
 gulp.task('default', ['build', 'liveserver', 'watch'], () => {});

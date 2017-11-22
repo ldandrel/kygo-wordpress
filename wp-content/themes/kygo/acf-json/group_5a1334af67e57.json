@@ -1,0 +1,44 @@
+{
+    "key": "group_5a1334af67e57",
+    "title": "News",
+    "fields": [
+        {
+            "key": "field_5a13360e24c93",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "value": null,
+            "instructions": "The description of your article",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "My awesome description",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1511209800
+}

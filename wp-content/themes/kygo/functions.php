@@ -1,9 +1,10 @@
 <?php
 
 
-if( !function_exists( 'mm_setup' ) ) {
+if( !function_exists( 'kygo_setup' ) ) {
     function kygo_setup()
     {
+        show_admin_bar(false);
         // Load languages information
         load_theme_textdomain( 'mm', get_template_directory() . '/languages' );
         // Add default posts and comments RSS feed links to head
@@ -69,10 +70,6 @@ function my_acf_init() {
 add_action('acf/init', 'my_acf_init');
 
 
-
-
-
-
 /*
  * Enqueue scripts & styles
  */
@@ -90,5 +87,12 @@ require get_template_directory() . '/inc/tours.php';
  * AJAX
  */
 require get_template_directory() . '/inc/ajax.php';
+
+
+/*
+ * Theme Settings
+ */
+require get_template_directory() . '/inc/theme_settings.php';
+
 
 

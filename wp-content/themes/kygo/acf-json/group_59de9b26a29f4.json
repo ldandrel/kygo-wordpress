@@ -23,10 +23,106 @@
             "button_label": "Add a new date",
             "sub_fields": [
                 {
-                    "key": "field_59de9b70a70d6",
-                    "label": "Date",
-                    "name": "date",
-                    "type": "date_picker",
+                    "key": "field_5a1423b5edd96",
+                    "label": "Show",
+                    "name": "show",
+                    "type": "repeater",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add a show",
+                    "sub_fields": [
+                        {
+                            "key": "field_59df3a8a6d9b0",
+                            "label": "Theater",
+                            "name": "theater",
+                            "type": "text",
+                            "value": null,
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_59de9b70a70d6",
+                            "label": "Date",
+                            "name": "date",
+                            "type": "date_picker",
+                            "value": null,
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "display_format": "d\/m\/Y",
+                            "return_format": "d\/m\/Y",
+                            "first_day": 1
+                        },
+                        {
+                            "key": "field_59de9c8cf959d",
+                            "label": "Tickets",
+                            "name": "tickets",
+                            "type": "link",
+                            "value": null,
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url"
+                        },
+                        {
+                            "key": "field_5a1431d0c4d75",
+                            "label": "Sold Out",
+                            "name": "sold_out",
+                            "type": "true_false",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_5a1535aa2a0f9",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "taxonomy",
                     "value": null,
                     "instructions": "",
                     "required": 1,
@@ -36,30 +132,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "d\/m\/Y",
-                    "return_format": "d\/m\/Y",
-                    "first_day": 1
+                    "taxonomy": "type",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "multiple": 0
                 },
                 {
-                    "key": "field_59de9c8cf959d",
-                    "label": "Tickets",
-                    "name": "tickets",
-                    "type": "link",
-                    "value": null,
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url"
-                },
-                {
-                    "key": "field_59df3a8a6d9b0",
-                    "label": "Theater",
-                    "name": "theater",
+                    "key": "field_5a152d55b968c",
+                    "label": "City & Country",
+                    "name": "city",
                     "type": "text",
                     "value": null,
                     "instructions": "",
@@ -71,15 +156,15 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
+                    "placeholder": "New-York, United Stated",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
                 },
                 {
                     "key": "field_59de9b90a70d7",
-                    "label": "City",
-                    "name": "city",
+                    "label": "Google map location",
+                    "name": "location",
                     "type": "google_map",
                     "value": null,
                     "instructions": "",
@@ -92,7 +177,7 @@
                     },
                     "center_lat": "",
                     "center_lng": "",
-                    "zoom": "",
+                    "zoom": 0,
                     "height": ""
                 }
             ]
@@ -131,5 +216,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1509316711
+    "modified": 1511369631
 }

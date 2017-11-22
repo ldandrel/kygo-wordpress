@@ -5,8 +5,6 @@ add_action( 'wp_ajax_nopriv_ajax_tour', 'ajax_tour' );
 
 function ajax_tour() {
 
-
-
     $args = array (
         'post_type'              => 'tour',
         'nopaging'               => false,
@@ -37,4 +35,36 @@ function ajax_tour() {
 
     die();
 }
+
+
+add_action( 'wp_ajax_ajax_search_tour', 'ajax_search_tour' );
+add_action( 'wp_ajax_nopriv_ajax_search_tour', 'ajax_search_tour' );
+
+function ajax_search_tour() {
+
+    $args = array (
+        'post_type' => 'tour',
+        'post_status' => 'publish',
+        'numberposts' => -1,
+    );
+
+    $query = new WP_Query( $args );
+
+    foreach ($query->posts as $post){
+        $args = array (
+            'p' => $post->ID,
+        );
+
+        $query = new WP_Query( $args );
+
+
+        var_dump($query);
+
+    }
+
+
+    die();
+}
+
+
 

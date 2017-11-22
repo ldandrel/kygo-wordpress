@@ -1,0 +1,275 @@
+.map-container {
+  width: 100vw;
+  height: 72vh;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+
+  @include responsive($md) {
+    height: 70vh;
+    margin-top: 100px;
+  }
+
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+
+  .popup-map {
+    position: absolute;
+    width: 90vw;
+    right: -90vw;
+    bottom: 10px;
+    background: $white;
+    border-radius: $border-radius;
+    transition: $transition;
+    box-shadow: $box-shadow;
+
+
+    @include responsive($md){
+      bottom: 40px;
+      width: 45vw;
+      right: -45vw;
+    }
+
+    @include responsive($lg){
+      width: 40vw;
+      right: -40vw;
+    }
+
+    .popup__close{
+
+      text-align: right;
+      margin: 16px 16px 0 0;
+
+      img {
+        cursor: pointer;
+      }
+    }
+
+    .popup__content{
+
+      padding:6px 24px 20px 24px;
+
+      @include responsive($md){
+        padding:6px 48px 40px 48px;
+      }
+      .popup__date{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:18px 0;
+        border-bottom: 1px solid $border-color;
+
+        &:last-child{
+          border-bottom: none;
+        }
+
+        strong{
+          @include responsive($md) {
+            font-size: 1.375rem;
+          }
+        }
+
+        a{
+          width: 120px;
+        }
+
+        #sold_out{
+          text-transform: uppercase;
+          color: $gray;
+          font-weight: bold;
+          text-align: center;
+          width: 120px;
+        }
+      }
+    }
+  }
+
+  .popup-map.is-active{
+
+    right: 5vw;
+
+    @include responsive($md) {
+      right: 38px;
+    }
+  }
+}
+
+
+
+
+
+
+.tour {
+  margin-top: 35px;
+
+
+
+  @include responsive($md){
+    padding:0 45px;
+    margin-top: 56px;
+
+  }
+  .tour__search {
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 25px 15px;
+
+    @include responsive($md){
+      flex-wrap: nowrap;
+    }
+
+
+
+    .tour__search-input {
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      width: 100%;
+      padding: 12px 20px;
+      margin: 16px 0;
+      position: relative;
+
+      @include responsive($md){
+        width: 30%;
+      }
+
+      input{
+        border:none;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 9px);
+        right: 20px;
+        background-image: url(../img/search.svg);
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .tour__search-filter {
+      width: 100%;
+
+      @include responsive($md){
+        width: 30%;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+
+        li{
+          cursor:pointer;
+          &:hover{
+            color:$main-color;
+            transition: $transition;
+          }
+        }
+        li.active {
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  .tour__results {
+    margin-top: 30px;
+
+    @include responsive($md){
+      padding:0 90px;
+    }
+    .list__date {
+      position: relative;
+      border: 1px solid $border-color;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      padding: 24px 0;
+
+      @include responsive($md) {
+        display: flex;
+        align-content: center;
+        align-items: center;
+      }
+
+      @include responsive($lg) {
+        padding: 24px 15px;
+      }
+
+      &:first-child{
+        border-top: 1px solid $border-color;
+      }
+
+      span{
+        font-weight: bold;
+        @include responsive($md) {
+          order:1;
+          width: 35%;
+        }
+
+        @include responsive($lg){
+          font-size: 1.375rem;
+        }
+      }
+
+      p{
+        @include responsive($md) {
+          order:0;
+          width: 20%;
+        }
+
+        @include responsive($lg){
+          font-size: 1.375rem;
+        }
+      }
+
+      #theater{
+        display: none;
+        @include responsive($md){
+          display: inherit;
+          width: 36%;
+        }
+      }
+
+      #sold_out{
+        text-transform: uppercase;
+        color: $gray;
+        font-weight: bold;
+        text-align: center;
+        width: 120px;
+      }
+
+      a{
+        position: absolute;
+        top:24px;
+        right: 0;
+        min-width: 120px;
+
+        @include responsive($md){
+          order:2;
+          position: inherit;
+          top:inherit;
+          right: inherit;
+        }
+      }
+    }
+
+
+  }
+}
+
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+  display:none;
+}
+.gmnoprint div {
+  background:none !important;
+}

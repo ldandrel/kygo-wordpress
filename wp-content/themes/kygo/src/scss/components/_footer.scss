@@ -2,6 +2,30 @@
   background: $black;
   height: 360px;
   width: 100vw;
-  position: absolute;
-  bottom: 0;
+  color:white;
+
+  .footer__socials{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    h2{
+
+    }
+
+    ul#menu-social-links-2{
+      display: flex;
+       path{
+        fill:$white;
+      }
+    }
+  }
+
+
+  .footer__credits {
+
+  }
 }
+

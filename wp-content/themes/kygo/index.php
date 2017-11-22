@@ -1,26 +1,10 @@
 <?php get_header(); ?>
 
-	<h1>Hello world</h1>
+<?php while(have_posts()) : the_post(); ?>
 
-
-<?php if( have_rows('locations') ): ?>
-
-    <div class="acf-map">
-        <?php while ( have_rows('locations') ) : the_row();
-
-            $location = get_sub_field('city');
-
-            ?>
-            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-                <h4><?php the_sub_field('title'); ?></h4>
-                <p class="address"><?php echo $location['address']; ?></p>
-                <p><?php the_sub_field('description'); ?></p>
-            </div>
-        <?php endwhile; ?>
-    </div>
-<?php endif; ?>
-
-
-
+    <section class="container">
+        <?php the_content(); ?>
+    </section>
+<?php endwhile; ?>
 
 <?php get_footer(); ?>

@@ -1,0 +1,12 @@
+<svg width="36" height="51" viewBox="0 0 36 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>marker-active</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2247 -550)">
+<g id="marker-active">
+<use xlink:href="#path0_fill" transform="matrix(-1 0 0 1 2282.5 550)" fill="#30DBFF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 17.5 0C 7.85045 0 -1.8433e-07 8.18824 -1.8433e-07 18.2529C -1.8433e-07 30.7434 15.6608 49.0803 16.3276 49.8548C 16.9538 50.5824 18.0473 50.5811 18.6724 49.8548C 19.3392 49.0803 35 30.7434 35 18.2529C 34.9998 8.18824 27.1495 0 17.5 0ZM 17.5 27.4364C 12.6451 27.4364 8.6954 23.3167 8.6954 18.2529C 8.6954 13.1891 12.6452 9.06945 17.5 9.06945C 22.3548 9.06945 26.3045 13.1892 26.3045 18.253C 26.3045 23.3168 22.3548 27.4364 17.5 27.4364Z"/>
+</defs>
+</svg>
