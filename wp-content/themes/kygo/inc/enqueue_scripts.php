@@ -18,6 +18,10 @@ function kygo_script_enqueue() {
         wp_enqueue_script('js-map', get_template_directory_uri() . '/assets/js/map.js', array(), '1.0.0', true);
     }
 
+    if(is_page('News')){
+        wp_enqueue_script('js-news', get_template_directory_uri() . '/assets/js/news.js', array(), '1.0.0', true);
+    }
+
 
 
 }
