@@ -1,6 +1,6 @@
 .news-container {
   .news-header {
-    padding: 0 24px 62px 24px;
+    padding: 62px 24px;
 
     background: $background-light-gray;
     display: flex;
@@ -83,22 +83,33 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin: 0;
+    margin: 45px 0;
     padding: 0 24px;
 
     @include responsive($sm){
       width: calc(90vw + 1rem);
-      margin: auto;
+      margin: 45px auto;
       padding: 0;
     }
 
     @include responsive($md){
       width: calc(80vw + 1rem);
+      margin-top: 104px;
     }
 
 
     .new__cards{
       display: flex;
+      cursor:pointer;
+      padding-bottom: 25px;
+
+      &:last-child{
+        padding-bottom: 0;
+
+        @include responsive($sm){
+          padding-bottom: 1rem;
+        }
+      }
 
       @include responsive($sm){
         padding: 1rem;
@@ -125,7 +136,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             border: $border-radius $border-radius 0 0;
-            filter: contrast(70%);
+            filter: contrast(85%);
             overflow: hidden;
             position: relative;
             transition: $transition;

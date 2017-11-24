@@ -3,13 +3,14 @@
   height: 360px;
   width: 100vw;
   color:white;
+  position: relative;
 
   .footer__socials{
     display: flex;
     height: 100%;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 
     h2{
 
@@ -17,15 +18,42 @@
 
     ul#menu-social-links-2{
       display: flex;
-       path{
-        fill:$white;
+      margin-top:36px;
+      li{
+        padding:0 12.5px;
+      }
+       i{
+        color:$white;
+
+         &:hover{
+           color:$main-color;
+         }
       }
     }
   }
 
 
-  .footer__credits {
+  .footer__privacy {
+    position: absolute;
+    bottom:11px;
+    width: 90%;
+    left:5%;
 
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+
+
+
+      @include responsive($md) {
+        bottom: 27px;
+      }
+
+      a {
+        color: $footer;
+      }
+    }
   }
 }
 

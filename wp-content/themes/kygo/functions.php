@@ -44,8 +44,10 @@ if( !function_exists( 'kygo_setup' ) ) {
             'primary' => __( 'Header primary menu', 'kygo' ),
             'external'  => __( 'Header external link', 'kygo' ),
             'language'  => __( 'Header language switcher', 'kygo' ),
-            'socials'  => __('Socials links', 'kygo')
-        ) );
+            'socials'  => __('Socials links', 'kygo'),
+            'privacy'  => __('Privacy', 'kygo')
+
+        ));
         /**
          * Switch default core markup for search form, comment form, and comments
          * to output valid HTML5

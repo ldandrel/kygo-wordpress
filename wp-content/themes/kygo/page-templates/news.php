@@ -17,14 +17,14 @@
 
     );
 
-    $the_query = new WP_Query($args);
+    $query = new WP_Query($args);
 
     $i = 0;
 
-    if ($the_query->have_posts()):
-        while ($the_query->have_posts()):
+    if ($query->have_posts()):
+        while ($query->have_posts()):
             $i++;
-            $the_query->the_post();
+            $query->the_post();
             if($i == 1): ?>
 
 
@@ -47,7 +47,7 @@
             <?php endif; ?>
 
                 <li class="new__cards">
-                    <div class="card">
+                    <div class="card" data-src="<?php the_permalink(); ?>">
                         <div class="new__img" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
                         <div class="new__content">
                             <div class="new__date date"><?= strftime("%d %b. %Y",strtotime(get_post()->post_date)); ?></div>
@@ -58,11 +58,20 @@
                     </div>
                 </li>
 
-            <?php if($i == 10): ?></ul><?php endif; ?>
+            <?php if($i == 9): ?></ul><?php endif; ?>
 
         <?php
         endwhile;
     endif; ?>
+
+
+
+    <div class="container2 loader-container">
+        <div class="loader gradient-loader">
+            <div class="inner-circle"></div>
+        </div>
+    </div>
+
 </div>
 
 <?php get_footer(); ?>

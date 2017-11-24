@@ -1,0 +1,33 @@
+.loader-container {
+  margin: 70px auto;
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 100%;
+}
+
+.inner-circle {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  background-color: $white;
+  margin: 0 auto;
+  border-radius: 100%;
+}
+
+.container2 .gradient-loader {
+  background-image: $gradient;
+  animation: rotateAnimation 1s infinite linear;
+}
+
+@keyframes rotateAnimation {
+  100% { transform: rotate(360deg) }
+}
