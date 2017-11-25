@@ -5,8 +5,9 @@
     margin-top: 120px;
 
     @include responsive($md){
-      margin-top: 100px;
-      padding:0;
+      padding: 0;
+      width: 50%;
+      margin: 200px auto 0px auto;
     }
 
     p{
@@ -25,9 +26,19 @@
 
   .single-new__content{
     padding:0 24px;
+
     iframe {
-      width: 100%;
-      margin:50px 0;
+      margin: 50px auto;
+    }
+
+    @include responsive($md){
+      padding: 0;
+      width: 50%;
+      margin: auto;
+
+      iframe {
+        height: auto;
+      }
     }
   }
 
@@ -41,4 +52,20 @@
     }
   }
 
+}
+
+.similar-articles {
+  padding: 50px 24px;
+  background: $background-light-gray;
+  display: flex;
+  flex-direction: column;
+
+  .simliar-articles__title {
+    margin-bottom: 30px;
+  }
+
+  .simliar-articles__more {
+    text-align: center;
+    padding: 30px 0px;
+  }
 }
