@@ -42,6 +42,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 this.$el.timeline_progress = this.$el.timeline.querySelector('.slider__timeline--progress');
                 this.current_slide = 0;
                 this.slide_width = this.$el.slider.offsetWidth;
+                this.direction = '';
 
                 //Start timebar animation
                 this.$el.timeline_progress.style.transition = 'transform 3s cubic-bezier(.6,.0,.4,1)';
@@ -121,8 +122,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         this.current_slide = 0;
                     }
 
-                    var direction = 'next';
-                    this.update_controls(direction);
+                    this.direction = 'next';
+                    this.update_controls();
                 }
 
                 /*
@@ -142,8 +143,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         this.current_slide = this.$el.slides.length - 1;
                     }
 
-                    var direction = 'prev';
-                    this.update_controls(direction);
+                    this.direction = 'prev';
+                    this.update_controls();
                 }
 
                 /*
@@ -154,7 +155,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             }, {
                 key: "update_controls",
-                value: function update_controls(direction) {
+                value: function update_controls() {
                     var _this2 = this;
 
                     //Remove all class before update class
@@ -198,7 +199,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     //Add active-direction class for current slide
-                    if (direction == 'prev') {
+                    if (this.direction === 'prev') {
                         this.$el.slides[this.current_slide].classList.add('active-prev');
                     } else {
                         this.$el.slides[this.current_slide].classList.add('active-next');

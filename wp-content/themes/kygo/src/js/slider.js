@@ -17,6 +17,7 @@ class Slider {
         this.$el.timeline_progress = this.$el.timeline.querySelector('.slider__timeline--progress')
         this.current_slide = 0
         this.slide_width = this.$el.slider.offsetWidth
+        this.direction = ''
 
         //Start timebar animation
         this.$el.timeline_progress.style.transition = 'transform 3s cubic-bezier(.6,.0,.4,1)'
@@ -65,8 +66,8 @@ class Slider {
             this.current_slide = 0
         }
 
-        let direction = 'next'
-        this.update_controls(direction)
+        this.direction = 'next'
+        this.update_controls()
     }
 
     /*
@@ -83,8 +84,8 @@ class Slider {
             this.current_slide = this.$el.slides.length - 1
         }
         
-        let direction = 'prev'
-        this.update_controls(direction)
+        this.direction = 'prev'
+        this.update_controls()
     }
 
     /*
@@ -92,7 +93,7 @@ class Slider {
      * Called after next or prev action
      * Update all controls (timeline + current slide), and update class (prev, is-active, next)
      */
-    update_controls(direction) {
+    update_controls() {
 
         //Remove all class before update class
         for(let [index, slide] of this.$el.slides.entries()) {
@@ -111,7 +112,7 @@ class Slider {
         }
 
         //Add active-direction class for current slide
-        if(direction == 'prev') {
+        if(this.direction === 'prev') {
             this.$el.slides[this.current_slide].classList.add('active-prev')
         } else {
             this.$el.slides[this.current_slide].classList.add('active-next')
