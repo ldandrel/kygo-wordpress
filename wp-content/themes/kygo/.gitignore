@@ -1,10 +1,9 @@
 *.log
-wp-content/plugins/hello.php
 
 /.htaccess
 /sitemap.xml
 /sitemap.xml.gz
 
 node_modules/
-gitignore.js
+gulpfile.js
 
