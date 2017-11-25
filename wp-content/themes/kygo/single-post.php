@@ -14,11 +14,16 @@
                 <img src="<?= get_the_post_thumbnail_url(); ?>" alt="">
             </div>
 
+            <div class="single-new__content">
+                <?php the_content(); ?>
+            </div>
+
+            <div class="single-new__share">
+                <span>Share this article on :<i class="fa fa-facebook" aria-hidden="true"></i><i class="fa fa-twitter" aria-hidden="true"></i></span>
+            </div>
 
         </section>
 
-    <?php the_content(); ?>
-    <?php echo get_the_date(); ?>
 
 <?php   endwhile;
     endif; ?>

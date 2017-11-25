@@ -10,8 +10,34 @@
     }
 
     p{
+      font-size: 1.375rem;
       padding:20px 0;
     }
-
   }
+
+  .single-new__img {
+
+    margin: 53px 0;
+    img {
+      width: 100%;
+    }
+  }
+
+  .single-new__content{
+    padding:0 24px;
+    iframe {
+      width: 100%;
+      margin:50px 0;
+    }
+  }
+
+  .single-new__share{
+    font-size: 1.375rem;
+    text-align: center;
+    i{
+      padding:0 9px;
+      cursor: pointer;
+    }
+  }
+
 }
