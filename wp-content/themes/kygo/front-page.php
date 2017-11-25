@@ -21,7 +21,7 @@
 </section>
 
 
-<section class="album">
+<section class="last-new">
 
 
 <?php
@@ -34,47 +34,40 @@
         $image = get_field('picture', $p->ID);
         ?>
 
-        <div class="album__title">
-            <h2><?= get_the_title( $p->ID ); ?> is out now.</h2>
-        </div>
-
-        <?php if( !empty($image) ): ?>
-            <div class="album__img">
-                <div>
-                    <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">
+        <div class="news-header">
+            <div class="news-header__left">
+                <div class="news-header__image-container">
+                    <?php if( !empty($image) ): ?>
+                        <div class="news-header__image">
+                            <div>
+                                <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
-        <?php endif; ?>
 
-
-
-        <div>
-        <div class="album__description">
-            <p>
-                <?= get_post_field('description', $p->ID)?>
-            </p>
+            <div class="news-header__right">
+                <h2 class="news-header__title"><?= get_the_title( $p->ID ); ?> is out now.</h2>
+                <p class="news-header__description"><?= get_post_field('description', $p->ID)?></p>
+                <div class="album__playlist">
+                    <ol>
+                        <?php
+                        if( have_rows('tracks', $p->ID) ):
+                            while( have_rows('tracks', $p->ID) ) : the_row();
+                                $title = get_sub_field('title');
+                                ?>
+                                <li>
+                                    <?=$title?>
+                                </li>
+                                <?php
+                            endwhile;
+                        endif;
+                        ?>
+                    </ol>
+                </div>
+            </div>
         </div>
-
-        <div class="album__playlist">
-            <ol>
-                <?php
-                if( have_rows('tracks', $p->ID) ):
-                    while( have_rows('tracks', $p->ID) ) : the_row();
-                        $title = get_sub_field('title');
-                ?>
-                    <li>
-                        <?=$title?>
-                    </li>
-                <?php
-                    endwhile;
-                endif;
-                ?>
-            </ol>
-        </div>
-        </div>
-
-
-
 
     <?php endforeach; ?>
 </section>
