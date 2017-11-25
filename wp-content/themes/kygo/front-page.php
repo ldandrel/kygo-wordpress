@@ -153,7 +153,7 @@
                             $i++;
 
                         ?>
-                        <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'active' : '')?><?=(($i == 2) ? 'next' : '') ?>">
+                        <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'active active-next' : '')?><?=(($i == 2) ? 'next' : '') ?><?= (($i == count($images)) ? 'prev' : '') ?>">
                             <img src="<?= $image['sizes']['large']; ?>" srcset="<?= $image['sizes']['medium']; ?> 320w" alt="<?=$image['alt']?>">
                         </div>
                         <?php endforeach; ?>

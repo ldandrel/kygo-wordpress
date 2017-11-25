@@ -18,31 +18,46 @@ class Slider {
         this.current_slide = 0
         this.slide_width = this.$el.slider.offsetWidth
 
+        //Start timebar animation
+        this.$el.timeline_progress.style.transition = 'transform 3s cubic-bezier(.6,.0,.4,1)'
+        this.$el.timeline_progress.style.transformOrigin = '0 50%'
+        this.$el.timeline_progress.style.transform = 'scale(1, 1)'
 
+        //Set interval for next slide
+        this.slider_interval = setInterval(() => {
+            this.next()
+        }, 3000)
 
+        //On click reset interval for next slide
         this.$el.next.addEventListener('click', () => {
+            clearInterval(this.slider_interval)
+            this.slider_interval = setInterval(() => {
+                this.next()
+            }, 3000)
            this.next()
         })
-
-
-        this.$el.prev.addEventListener('click', () => {
-            this.prev()
-        })
-
-        this.init()
-    }
-
-
-    init(){
-
     }
 
     /*
-    * Next()
+    * ()
+    * update_control_before
     * Called on click on next and with setinterval
     * Next slide
     */
+    update_control_before() {
+        for(let [index, slide] of this.$el.slides.entries()) {
+            slide.classList.remove('before')
+        }
+        this.$el.slides[this.current_slide].classList.add('before')
+    }
+
+    /*
+    * next()
+    * Called on click on next and with setinterval
+    * update controls before changing the index of the current slide
+    */
     next(){
+        this.update_control_before()
 
         if(this.current_slide < this.$el.slides.length - 1) {
             this.current_slide++
@@ -50,26 +65,26 @@ class Slider {
             this.current_slide = 0
         }
 
-
-
-        this.update_controls()
-
+        let direction = 'next'
+        this.update_controls(direction)
     }
 
     /*
      * prev()
-     * Called on click on prev and with setinterval
+     * Called on click on prev
      * Prev slide
      */
     prev(){
+        this.update_control_before()
+
         if(this.current_slide > 0) {
             this.current_slide--
         } else {
             this.current_slide = this.$el.slides.length - 1
         }
-
-        this.update_controls()
-
+        
+        let direction = 'prev'
+        this.update_controls(direction)
     }
 
     /*
@@ -77,14 +92,15 @@ class Slider {
      * Called after next or prev action
      * Update all controls (timeline + current slide), and update class (prev, is-active, next)
      */
-    update_controls(){
+    update_controls(direction) {
 
         //Remove all class before update class
         for(let [index, slide] of this.$el.slides.entries()) {
             slide.classList.remove('prev')
             slide.classList.remove('active')
             slide.classList.remove('next')
-
+            slide.classList.remove('active-next')
+            slide.classList.remove('active-prev')
         }
 
         //Add prev class for prev slide
@@ -92,6 +108,13 @@ class Slider {
             this.$el.slides[this.current_slide - 1].classList.add('prev')
         } else {
             this.$el.slides[this.$el.slides.length - 1].classList.add('prev')
+        }
+
+        //Add active-direction class for current slide
+        if(direction == 'prev') {
+            this.$el.slides[this.current_slide].classList.add('active-prev')
+        } else {
+            this.$el.slides[this.current_slide].classList.add('active-next')
         }
 
         //Add is active class for current slide
@@ -104,17 +127,17 @@ class Slider {
             this.$el.slides[this.current_slide + 1].classList.add('next')
         }
 
-        this.$el.timeline_progress.style.transformOrigin = '0 50%'
-        this.$el.timeline_progress.style.transform = 'scale(1, 1)'
+        //Set timbar animation
+        this.$el.timeline_progress.style.transition = 'transform 0.5s cubic-bezier(.6,.0,.4,.1)'
+        this.$el.timeline_progress.style.transformOrigin = '100%'
+        this.$el.timeline_progress.style.transform = 'scale(0, 1)'
         setTimeout(()  => {
-            this.$el.timeline_progress.style.transformOrigin = '100%'
-            this.$el.timeline_progress.style.transform = 'scale(0, 1)'
-        }, 1000)
-
-
+            this.$el.timeline_progress.style.transition = 'transform 2.5s cubic-bezier(.6,.0,.4,1)'
+            this.$el.timeline_progress.style.transformOrigin = '0 50%'
+            this.$el.timeline_progress.style.transform = 'scale(1, 1)'
+        }, 500)
 
         this.$el.current.innerHTML = pad(this.current_slide + 1)
-
 
     }
 }
@@ -128,7 +151,3 @@ let slider = new Slider(
     document.querySelector('.slider'),
     document.querySelector('.slider__controls')
 )
-
-setInterval(() => {
-    slider.next()
-}, 3000)
