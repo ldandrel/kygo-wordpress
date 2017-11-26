@@ -119,90 +119,13 @@
 
 
 
-.album {
+.last-new {
 
-  width: 100vw;
-  margin-top:62px;
-  padding:0 24px;
-
-  @include responsive($sm) {
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-
-  @include responsive($md){
-    margin-top: 225px;
-    padding-left:inherit;
-  }
-
-    .album__title{
-      @include responsive($sm) {
-        order:2;
-      }
+    .news-header{
+      background: $white !important;
     }
 
-
-    .album__img {
-
-      margin-top:30px;
-      @include responsive($sm) {
-        order:1;
-        width: 30%;
-      }
-      div {
-        position: relative;
-        width: 90%;
-
-        img {
-          width: 100%;
-          height: auto;
-          border-radius: $border-radius;
-        }
-
-        &:before {
-          content: "";
-          height: 100%;
-          width: 100%;
-          box-shadow: $box-shadow;
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          background: $white;
-          border-radius: $border-radius;
-          z-index: -1;
-
-          @include responsive($sm){
-            top: 40px;
-            left: 40px;
-          }
-        }
-      }
-    }
-
-  div {
-    @include responsive($sm) {
-      order:3;
-    }
-  }
-
-
-
-    .album__description{
-      width: 90%;
-      border-bottom: 1px solid $border-color;
-      color:$text-color;
-      margin-top:30px;
-      padding:30px 0px;
-
-      @include responsive($sm){
-        padding: 40px 0;
-      }
-    }
-
-    .album__playlist {
+    .last-new__playlist {
 
       ol {
         list-style: none;
@@ -226,27 +149,46 @@
         color:$border-color;
       }
   }
-}
 
-.album__buy {
-  text-align: center;
-  margin-top: 40px;
-  img{
-    width: 150px;
-    height: auto;
-    cursor: pointer;
+  .album__buy {
+    text-align: center;
+    margin-top: 40px;
+    img{
+      width: 150px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    @include responsive($sm){
+      margin-top:10px;
+    }
   }
 
-  @include responsive($sm){
-    margin-top:115px;
-  }
 }
+
 
 .tour{
   width: 100vw;
   margin-top:100px;
   padding:0 24px;
   position: relative;
+
+  &:before{
+    content:'';
+    z-index:-1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: $background-light-gray;
+
+    @include responsive($md){
+      width: 90%;
+    }
+  }
+
+
 
 
   .tour__list {

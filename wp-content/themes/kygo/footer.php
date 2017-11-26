@@ -14,9 +14,7 @@
             )); ?>
         </div>
 	</footer>
-    <script type="text/javascript">
-        let page = '<?= get_queried_object()->post_title; ?>';
-    </script>
+
 
 
 

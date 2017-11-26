@@ -1,7 +1,6 @@
-.news-container, {
+.news-container, .last-new {
   .news-header {
     padding: 62px 24px;
-
     background: $background-light-gray;
     display: flex;
     justify-content: center;
@@ -10,12 +9,13 @@
 
 
     @include responsive($sm){
-      justify-content: space-between;
-      align-items: center;
+
       padding: 0 5vw 62px 5vw;
     }
 
     @include responsive($md){
+      justify-content: space-between;
+      align-items: center;
       padding: 20px 10vw 62px 10vw;
       margin-top: 100px;
     }
@@ -27,18 +27,28 @@
 
     .news-header__left {
       display: inline-block;
+      width: calc(100% - 24px);
 
       @include responsive($sm){
+        max-width: 60%;
+
+      }
+
+      @include responsive($md){
         width: 46%;
       }
 
       .news-header__image-container {
         position: relative;
-        width: calc(100% - 24px);
 
         .news-header__image {
+          border-radius: $border-radius;
           width: 100%;
-          border-radius: 5px;
+
+          img {
+            width: 100%;
+            border-radius: $border-radius;
+          }
         }
 
         &:before {
@@ -53,7 +63,7 @@
           border-radius: $border-radius;
           z-index: -1;
 
-          @include responsive($md) {
+          @include responsive($lg) {
             top: 40px;
             left: 40px;
           }
@@ -66,6 +76,10 @@
       margin-top: 62px;
 
       @include responsive($sm){
+        width: 60%;
+      }
+
+      @include responsive($md){
         width: 46%;
       }
 

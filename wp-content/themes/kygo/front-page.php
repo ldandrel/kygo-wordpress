@@ -50,7 +50,7 @@
             <div class="news-header__right">
                 <h2 class="news-header__title"><?= get_the_title( $p->ID ); ?> is out now.</h2>
                 <p class="news-header__description"><?= get_post_field('description', $p->ID)?></p>
-                <div class="album__playlist">
+                <div class="last-new__playlist">
                     <ol>
                         <?php
                         if( have_rows('tracks', $p->ID) ):
@@ -70,10 +70,11 @@
         </div>
 
     <?php endforeach; ?>
-</section>
         <div class="album__buy">
             <a href="<?= get_post_field('buy', $p->ID)?>" target="_blank"><img src="<?= get_template_directory_uri() ?>/assets/img/buy.png" alt="buy"></a>
         </div>
+</section>
+
 <?php endif; ?>
 
 
@@ -87,46 +88,33 @@
             <?php
             $args = array (
                 'post_type'              => 'tour',
-                'nopaging'               => false,
-                'posts_per_page'         => '1',
-                'order'                  => 'DESC',
-                'orderby'                => 'date',
+                'posts_per_page'         => '3',
+                'orderby'                => 'rand'
+
             );
 
             $query = new WP_Query( $args );
-            $json = array();
 
             if($query->posts):
-                foreach ($query->posts as $tour) {
-                    if (have_rows('locations', $tour->ID)) {
-                        while (have_rows('locations', $tour->ID)) {
+                foreach ($query->posts as $tour):
+                    if (have_rows('locations', $tour->ID)):
+                        while (have_rows('locations', $tour->ID)):
                             the_row();
-                            $city = get_sub_field('city');
-
-                            array_push($json, [
-                                'city' => $city['address'],
-                                'date' => get_sub_field('date')
-                            ]);
-
-                        }
-                    }
-                }
-
-            $rand_keys = array_rand($json, 3);
+            var_dump(the_row());
 
             ?>
 
                 <ul>
-                    <?php   for($i = 0; $i < 3; $i++): ?>
-                        <li>
-                            <h3>
-                               <?= $json[$rand_keys[$i]]['city'] ?>
-                            </h3>
-                            <?= $json[$rand_keys[$i]]['date'] ?>
-                        </li>
-                    <?php endfor; ?>
+                    <li>
+                        <h3><?= get_sub_field('city'); ?></h3>
+                        <?= get_sub_field('date') ?>
+                    </li>
                 </ul>
-            <?php endif; ?>
+
+                 <?php endwhile;
+                    endif;
+                endforeach;
+             endif; ?>
 
                 <a href="<?= get_permalink( get_page_by_title( 'tour' ) ) ?>" class="btn-kygo">
                     All dates
@@ -163,7 +151,6 @@
     </div>
 </section>
 
-<div class="tour-background"></div>
 
 
 
