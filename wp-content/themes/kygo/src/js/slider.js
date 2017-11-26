@@ -37,6 +37,27 @@ class Slider {
             }, 3000)
            this.next()
         })
+
+        //On click reset interval for prev slide
+        this.$el.prev.addEventListener('click', () => {
+            clearInterval(this.slider_interval)
+            this.slider_interval = setInterval(() => {
+                this.next()
+            }, 3000)
+            this.prev()
+        })
+
+        window.addEventListener('resize', () => {
+            this.resize()
+        })
+
+        this.resize()
+    }
+
+    resize(){
+
+
+        this.$el.slider.style.height = this.$el.slider.querySelector('img').offsetHeight + 'px'
     }
 
     /*

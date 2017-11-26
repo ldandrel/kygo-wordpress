@@ -49,7 +49,7 @@
 
             <div class="news-header__right">
                 <h2 class="news-header__title"><?= get_the_title( $p->ID ); ?> is out now.</h2>
-                <p class="news-header__description"><?= get_post_field('description', $p->ID)?></p>
+                <p class="news-header__description last-new__description"><?= get_post_field('description', $p->ID)?></p>
                 <div class="last-new__playlist">
                     <ol>
                         <?php
@@ -78,7 +78,36 @@
 <?php endif; ?>
 
 
-<section class="tour">
+<section class="tour-homepage">
+    <div class="tour__right">
+        <div class="tour__slider">
+            <div class="slider">
+                <?php
+
+                $images = get_field('slider');
+                if( $images ):
+                    $i = 0;
+                    ?>
+                    <?php foreach( $images as $image ):
+                    $i++;
+
+                    ?>
+                    <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'active active-next' : '')?><?=(($i == 2) ? 'next' : '') ?><?= (($i == count($images)) ? 'prev' : '') ?>">
+                        <img src="<?= $image['url']; ?>" alt="<?=$image['alt']?>">
+                    </div>
+                <?php endforeach; ?>
+                <?php endif; ?>
+
+                <div class="tour-photo-controls slider__controls">
+                    <p><strong>01</strong> | <?= sprintf("%02d", count($images)) ?></p>
+                    <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
+                    <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
+                    <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tour__left">
         <div class="tour__title">
             <h2>Tour Date.</h2>
         </div>
@@ -97,56 +126,25 @@
 
             if($query->posts):
                 foreach ($query->posts as $tour):
-                    if (have_rows('locations', $tour->ID)):
-                        while (have_rows('locations', $tour->ID)):
-                            the_row();
-            var_dump(the_row());
-
-            ?>
+                        while (have_rows('locations', $tour->ID)): the_row(); ?>
 
                 <ul>
                     <li>
-                        <h3><?= get_sub_field('city'); ?></h3>
-                        <?= get_sub_field('date') ?>
+                        <span><?php the_sub_field('city');?></span>
+                        <?php if( have_rows('show') ):
+                            while ( have_rows('show') ) : the_row(); ?>
+                                 <p class="date"><?= strftime("%d %b. %Y",strtotime(get_sub_field('date', false))); ?></p>
+                             <?php endwhile;
+                        endif; ?>
                     </li>
                 </ul>
 
                  <?php endwhile;
-                    endif;
-                endforeach;
-             endif; ?>
-
+                endforeach; ?>
                 <a href="<?= get_permalink( get_page_by_title( 'tour' ) ) ?>" class="btn-kygo">
                     All dates
                 </a>
-        </div>
-
-
-        <div class="tour__slider">
-            <div class="slider">
-                    <?php
-
-                    $images = get_field('slider');
-                if( $images ):
-                        $i = 0;
-                        ?>
-                        <?php foreach( $images as $image ):
-                            $i++;
-
-                        ?>
-                        <div id="slider-<?= $i - 1 ?>" class="slider__wrapper <?= (($i == 1) ? 'active active-next' : '')?><?=(($i == 2) ? 'next' : '') ?><?= (($i == count($images)) ? 'prev' : '') ?>">
-                            <img src="<?= $image['sizes']['large']; ?>" srcset="<?= $image['sizes']['medium']; ?> 320w" alt="<?=$image['alt']?>">
-                        </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-
-                  <div class="tour-photo-controls slider__controls">
-                    <p><strong>01</strong> | <?= sprintf("%02d", count($images)) ?></p>
-                    <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
-                    <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
-                    <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
-                </div>
-            </div>
+             <?php endif; ?>
         </div>
     </div>
 </section>
@@ -155,38 +153,67 @@
 
 
 <section class="music">
-    <div class="music-banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
-        <h2>Music.</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur magni, odit quam quis voluptatem. Culpa ipsa itaque, maiores molestias nemo repellendus sapiente sit soluta temporibus tenetur veritatis voluptas voluptatem.
-        </p>
+    <div class="music__banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
+        <div class="music__content">
+            <h2>Music.</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur magni, odit quam quis voluptatem. Culpa ipsa itaque, maiores molestias nemo repellendus sapiente sit soluta temporibus tenetur veritatis voluptas voluptatem.
+            </p>
 
-        <a href="<?= get_permalink( get_page_by_title( 'music' ) ) ?>" class="btn-kygo">
-            See Kygo's music
-        </a>
+            <div class="music__see-more">
+                <a href="<?= get_permalink( get_page_by_title( 'music' ) ) ?>" class="btn-kygo">
+                    See Kygo's music
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="clear-both"></div>
 </section>
 
 
-<section class="news">
-    <div class="news-title">
-        <h2>News.</h2>
-    </div>
+    <section class="news news-container">
 
-    <div class="news-container">
-        <div class="new news-container-main-new">
-            <img src="<?= get_template_directory_uri() ?>/assets/img/main-new.jpeg" alt="new">
-            <span class="new-date">
-                14 OCT. 2017
-            </span>
-            <h3>Touring India in November</h3>
-            <p>This will be Kygo's second visit to India after last year's success at the Sunburn Festival in Goa.</p>
+        <div class="news-title">
+            <h2>News.</h2>
         </div>
 
+        <div class="news-list">
+            <?php
 
-    </div>
-</section>
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 3,
+                'orderby' => 'date',
+                'order'   => 'DESC'
+            );
+
+
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()):
+                while ($query->have_posts()):
+                    $query->the_post(); ?>
+
+                    <li class="new__cards">
+                        <div class="card" data-src="<?php the_permalink(); ?>">
+                            <div class="new__img" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
+                            <div class="new__content">
+                                <div class="new__date date"><?= strftime("%d %b. %Y",strtotime(get_post()->post_date)); ?></div>
+                                <h3 class="new__title"><?php the_title(); ?></h3>
+                                <p class="new__description"><?php the_field('description') ?></p>
+                                <a class="new__more btn-kygo" href="<?php the_permalink(); ?>">Read more</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <?php
+                endwhile;
+            endif; ?>
+        </div>
+
+        <div class="news__more">
+            <a href="<?= get_site_url() ?>/news" class="simliar-articles__more-btn btn-kygo">See more news</a>
+        </div>
+    </section>
 
 
 <?php get_footer(); ?>

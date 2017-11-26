@@ -125,6 +125,12 @@
       background: $white !important;
     }
 
+    .last-new__description{
+      color:$gray;
+      border-bottom: 1px solid $border-color;
+      padding-bottom: 40px;
+    }
+
     .last-new__playlist {
 
       ol {
@@ -152,7 +158,8 @@
 
   .album__buy {
     text-align: center;
-    margin-top: 40px;
+    margin-top: -22px;
+
     img{
       width: 150px;
       height: auto;
@@ -167,11 +174,21 @@
 }
 
 
-.tour{
+.tour-homepage{
   width: 100vw;
   margin-top:100px;
-  padding:0 24px;
+  padding:50px 0;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include responsive($md){
+    justify-content: center;
+    align-items: center;
+    height: 780px;
+    padding: 0;
+  }
+
 
   &:before{
     content:'';
@@ -186,148 +203,155 @@
     @include responsive($md){
       width: 90%;
     }
+
+    @include responsive($md){
+      justify-content: space-between;
+      align-items: center;
+    }
+
   }
 
 
+  .tour__left {
+    margin-top:calc(10% + 40px);
+    padding:0 24px;
 
 
-  .tour__list {
-    margin-top:280px;
-    ul {
-      margin-bottom: 29px;
-      li {
-        padding: 10px 0;
-        &:not(:first-child){
-          display: none;
+    @include responsive($md){
+      order:1;
+    }
 
-          @include responsive($md){
-            display: inherit;
+    .date{
+      color:$black;
+    }
+
+    .tour__list {
+      ul {
+        margin-bottom: 29px;
+        li {
+          padding: 10px 0;
+          span{
+            font-size: 1.875rem;
+            font-weight: bold;
+          }
+          &:not(:first-child) {
+            display: none;
+
+            @include responsive($md) {
+              display: inherit;
+            }
           }
         }
       }
-    }
-    a {
-      margin-top: 30px;
+      a {
+        margin-top: 30px;
+      }
     }
   }
 
-  .tour__slider{
-    width: 90vw;
-    position:absolute;
-    top:70px;
-    right: 0;
-    bottom: 0;
+  .tour__right {
+
+    width: 100vw;
+
 
     @include responsive($md){
-      height:525px;
-      top: 106px;
+      width: 60vw;
+      order:2;
     }
 
-    .slider{
-      width: 300px;
-      height: 200px;
-      //overflow: hidden;
+    .tour__slider {
+      width: 80%;
+      margin-left:20%;
+      .slider {
+        width: 100%;
+        height: 175px;
+
+      }
     }
   }
-
-
-
 }
 
-.tour-background{
-  background: $background-light-gray;
-  width: 80%;
-  z-index: -2;
-  height: 80vh;
-  margin-top:-80vh;
-}
 
 
 .music {
   margin-top:80px;
-
-  .music-banner{
-    height: 450px;
-    width: 95%;
-    border-radius: $border-radius;
-    position:relative;
-    float: right;
-    margin-right: -10%;
-    color:$white;
+  display: flex;
+  height: 450px;
 
 
 
-    &:before{
-      content:"";
-      height: 450px;
-      width: 100%;
-      box-shadow: $box-shadow;
-      position: absolute;
-      top:-40px;
-      left:-40px;
-      background: $white;
-      border-radius:$border-radius;
-      z-index: -1;
+  .music__banner{
+    width: 100%;
+    position: relative;
+    background-position: 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    @include responsive($md) {
+      width: 90%;
+      margin-left:10%;
+      border-radius: $border-radius 0 0 $border-radius;
+      background-position: 60% ;
+
+      &:before {
+        content: "";
+        height: 450px;
+        width: calc(100% + 40px);
+        box-shadow: $box-shadow;
+        position: absolute;
+        top: -40px;
+        left: -40px;
+        background: $white;
+        border-radius: $border-radius 0 0 $border-radius;
+        z-index: -1;
+      }
     }
 
-    h2{
-      margin: 105px 0 0 30%;
-    }
-
-    p{
+    .music__content{
       color:$white;
-      width: 40%;
-      margin-left: 30%;
-      padding: 40px 0 50px 0;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      flex-direction: column;
+      align-content: center;
+      padding: 100px 24px;
+
+      @include responsive($md){
+        width: 40%;
+        margin-left: 40%;
+      }
+
+      p{
+        padding:25px 0;
+      }
+
+      .music__see-more {
+        margin-top:20px;
+      }
     }
-
-    a{
-      margin-left: 30%;
-    }
-
-
   }
-
-  .clear-both{
-    clear: both;
-    height: 0; overflow: hidden;
-  }
-
 
 }
 
 
 .news{
-  margin-top: 110px;
+  margin: 110px 0;
   width: 100vw;
+
+  .news-list{
+    margin-top:0 !important;
+  }
 
   .news-title{
     text-align: center;
   }
 
-  .news-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .news__more{
+    margin-left: 24px;
 
-    .news-container-main-new{
-      width: 665px;
-      height: 464px;
-    }
-
-    .new {
-      border-radius: $border-radius;
-      box-shadow: $box-shadow;
-
-      img{
-        width: 100%;
-        height: auto;
-      }
-
-      .new-date{
-        color:$text-color;
-        font-size: 12px;
-      }
+    @include responsive($md){
+      text-align: center;
     }
   }
 }

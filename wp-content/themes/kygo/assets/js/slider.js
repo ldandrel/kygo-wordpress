@@ -62,17 +62,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }, 3000);
                     _this.next();
                 });
+
+                //On click reset interval for prev slide
+                this.$el.prev.addEventListener('click', function () {
+                    clearInterval(_this.slider_interval);
+                    _this.slider_interval = setInterval(function () {
+                        _this.next();
+                    }, 3000);
+                    _this.prev();
+                });
+
+                window.addEventListener('resize', function () {
+                    _this.resize();
+                });
+
+                this.resize();
             }
 
-            /*
-            * ()
-            * update_control_before
-            * Called on click on next and with setinterval
-            * Next slide
-            */
-
-
             _createClass(Slider, [{
+                key: "resize",
+                value: function resize() {
+
+                    this.$el.slider.style.height = this.$el.slider.querySelector('img').offsetHeight + 'px';
+                }
+
+                /*
+                * ()
+                * update_control_before
+                * Called on click on next and with setinterval
+                * Next slide
+                */
+
+            }, {
                 key: "update_control_before",
                 value: function update_control_before() {
                     var _iteratorNormalCompletion = true;

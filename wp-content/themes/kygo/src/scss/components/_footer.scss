@@ -41,8 +41,21 @@
 
     ul {
       display: flex;
-      justify-content: space-between;
-      align-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      @include responsive($md){
+        flex-direction: row;
+        justify-content: space-between;
+
+      }
+
+      li{
+        padding: 5px 0;
+        @include responsive($md){
+          padding:0;
+        }
+      }
 
 
 
