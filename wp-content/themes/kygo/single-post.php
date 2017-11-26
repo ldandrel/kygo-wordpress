@@ -24,21 +24,36 @@
 
         </section>
 
-        <section class="similar-articles">
+        <section class="similar-articles news-container">
 
             <h2 class="simliar-articles__title">Similar articles</h2>
 
+            <div class="similar-articles__articles news-list">
             <?php
 
             $category = get_the_category();
+            $category_name = $category[0]->name;
+            $post_id = get_the_ID();
 
-            $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 3,
-                'orderby' => 'date',
-                'order'   => 'DESC',
-                'category_name' => $category
-            );
+            if($category_name == "Non classé")
+            {
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 3,
+                    'orderby' => 'date',
+                    'order'   => 'DESC',
+                    'post__not_in' => array($post_id)
+                );
+            } else {
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 3,
+                    'orderby' => 'date',
+                    'order'   => 'DESC',
+                    'post__not_in' => array($post_id),
+                    'category_name' => $category_name
+                );
+            }
 
             $query = new WP_Query($args);
 
@@ -61,6 +76,11 @@
                     <?php
                 endwhile;
             endif; ?>
+            </div>
+
+            <div class="simliar-articles__more">
+                <a href="<?= get_site_url() ?>/news" class="simliar-articles__more-btn btn-kygo">See more news</a>
+            </div>
         </section>
 
 
