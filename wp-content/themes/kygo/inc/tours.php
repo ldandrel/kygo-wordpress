@@ -39,21 +39,21 @@ function kygo_custom_tours() {
     register_post_type( 'tour', $args );
 
     $labels = array(
-        'name'              => _x( 'Types', 'taxonomy general name', 'type' ),
-        'singular_name'     => _x( 'Type', 'taxonomy singular name', 'type' ),
-        'search_items'      => __( 'Search Types', 'type' ),
-        'all_items'         => __( 'All Types', 'type' ),
-        'parent_item'       => __( 'Parent Type', 'type' ),
-        'parent_item_colon' => __( 'Parent Type:', 'type' ),
-        'edit_item'         => __( 'Edit Type', 'type' ),
-        'update_item'       => __( 'Update Type', 'type' ),
-        'add_new_item'      => __( 'Add New Type', 'type' ),
-        'new_item_name'     => __( 'New Type Name', 'type' ),
-        'menu_name'         => __( 'Type', 'type' ),
+        'name'              => _x( 'Types of tour', 'taxonomy general name', 'type' ),
+        'singular_name'     => _x( 'Type of tour', 'taxonomy singular name', 'type' ),
+        'search_items'      => __( 'Search Types of tour', 'type' ),
+        'all_items'         => __( 'All Types of tour', 'type' ),
+        'parent_item'       => __( 'Parent Type of tour', 'type' ),
+        'parent_item_colon' => __( 'Parent Type of tour:', 'type' ),
+        'edit_item'         => __( 'Edit Type of tour', 'type' ),
+        'update_item'       => __( 'Update Type of tour', 'type' ),
+        'add_new_item'      => __( 'Add New Type of tour', 'type' ),
+        'new_item_name'     => __( 'New Type Name of tour', 'type' ),
+        'menu_name'         => __( 'Type of tour', 'type' ),
     );
     $args = array(
         'labels' => $labels,
-        'description' => __( 'Type of songs', 'type' ),
+        'description' => __( 'Type of tour', 'type' ),
         'hierarchical' => false,
         'public' => false,
         'publicly_queryable' => false,
@@ -65,7 +65,7 @@ function kygo_custom_tours() {
         'show_in_quick_edit' => true,
         'show_admin_column' => false,
     );
-    register_taxonomy( 'type', array('tour', ), $args );
+    register_taxonomy( 'type-tour', array('tour', ), $args );
 
 }
 add_action( 'init', 'kygo_custom_tours' );

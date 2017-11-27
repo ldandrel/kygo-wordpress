@@ -132,7 +132,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "taxonomy": "type",
+                    "taxonomy": "type-tour",
                     "field_type": "select",
                     "allow_null": 0,
                     "add_term": 0,
@@ -216,5 +216,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1511369631
+    "modified": 1511744873
 }

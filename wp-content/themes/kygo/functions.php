@@ -83,6 +83,8 @@ require get_template_directory() . '/inc/enqueue_scripts.php';
  */
 require get_template_directory() . '/inc/song.php';
 require get_template_directory() . '/inc/tours.php';
+require get_template_directory() . '/inc/award.php';
+
 
 
 /*

@@ -54,21 +54,21 @@ function kygo_custom_songs() {
     register_post_type( 'song', $args );
 
     $labels = array(
-        'name'              => _x( 'Types', 'taxonomy general name', 'type' ),
-        'singular_name'     => _x( 'Type', 'taxonomy singular name', 'type' ),
-        'search_items'      => __( 'Search Types', 'type' ),
-        'all_items'         => __( 'All Types', 'type' ),
-        'parent_item'       => __( 'Parent Type', 'type' ),
-        'parent_item_colon' => __( 'Parent Type:', 'type' ),
-        'edit_item'         => __( 'Edit Type', 'type' ),
-        'update_item'       => __( 'Update Type', 'type' ),
-        'add_new_item'      => __( 'Add New Type', 'type' ),
-        'new_item_name'     => __( 'New Type Name', 'type' ),
-        'menu_name'         => __( 'Type', 'type' ),
+        'name'              => _x( 'Types of song', 'taxonomy general name', 'type' ),
+        'singular_name'     => _x( 'Type of song', 'taxonomy singular name', 'type' ),
+        'search_items'      => __( 'Search Types of song', 'type' ),
+        'all_items'         => __( 'All Types of song', 'type' ),
+        'parent_item'       => __( 'Parent Type of song', 'type' ),
+        'parent_item_colon' => __( 'Parent Type of song:', 'type' ),
+        'edit_item'         => __( 'Edit Type of song', 'type' ),
+        'update_item'       => __( 'Update Type of song', 'type' ),
+        'add_new_item'      => __( 'Add New Type of song', 'type' ),
+        'new_item_name'     => __( 'New Type of song Name', 'type' ),
+        'menu_name'         => __( 'Type of song', 'type' ),
     );
     $args = array(
         'labels' => $labels,
-        'description' => __( 'Type of songs', 'type' ),
+        'description' => __( 'Type of song', 'type' ),
         'hierarchical' => false,
         'public' => false,
         'publicly_queryable' => false,
@@ -80,7 +80,7 @@ function kygo_custom_songs() {
         'show_in_quick_edit' => true,
         'show_admin_column' => false,
     );
-    register_taxonomy( 'type', array('song', ), $args );
+    register_taxonomy( 'type-song', array('song', ), $args );
 
 }
 
