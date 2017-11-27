@@ -140,8 +140,8 @@
             <?php
             $args = array (
                 'post_type'              => 'tour',
-                'posts_per_page'         => '3',
-                'orderby'                => 'rand'
+                'orderby'                => 'rand',
+                'posts_per_page'         => 3
 
             );
 
