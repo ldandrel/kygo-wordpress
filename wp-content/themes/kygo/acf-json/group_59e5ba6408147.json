@@ -30,48 +30,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_5a0bfce6944fe",
-            "label": "Title",
-            "name": "title",
-            "type": "text",
-            "value": null,
-            "instructions": "Title",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5a0b7859bc78e",
-                        "operator": "==",
-                        "value": "Album"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5a0b7859bc78e",
-                        "operator": "==",
-                        "value": "Single"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5a0b7859bc78e",
-                        "operator": "==",
-                        "value": "Clip"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5a0bfd00944ff",
             "label": "Type",
             "name": "type",
@@ -115,6 +73,24 @@
             "load_terms": 0,
             "return_format": "id",
             "multiple": 0
+        },
+        {
+            "key": "field_5a1b6631cd8d5",
+            "label": "Date",
+            "name": "date",
+            "type": "date_picker",
+            "value": null,
+            "instructions": "Date",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
         },
         {
             "key": "field_59e5ba786acd3",
@@ -355,5 +331,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1511744766
+    "modified": 1511745515
 }
