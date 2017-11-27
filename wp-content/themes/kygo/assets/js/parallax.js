@@ -31,18 +31,28 @@
         var parallax = function parallax(event, observer) {
             var target = event[0].target;
             var ratio = event[0].intersectionRatio * 40;
-            console.log(event[0].intersectionRatio * 40);
-            // console.log(event[0].boundingClientRect.y > 0)
-            // console.log(ratio)
             if (ratio > 0) {
                 target.style.transform = "translateY(" + ratio + "px)";
             }
         };
 
+        var parallaxInverse = function parallaxInverse(event, observer) {
+            var target = event[0].target;
+            var ratio = event[0].intersectionRatio * 40;
+            console.log(ratio);
+            if (ratio > 0) {
+                target.style.transform = "translateY(-" + ratio + "px)";
+            }
+        };
+
         observables.forEach(function (observable, i) {
             options.threshold = thresholdSets;
-            console.log(options);
-            var observer = new IntersectionObserver(parallax, options);
+            var observer = '';
+            if (observable.classList.contains(queryString + "--parallax")) {
+                observer = new IntersectionObserver(parallax, options);
+            } else if (observable.classList.contains(queryString + "--parallax-inverse")) {
+                observer = new IntersectionObserver(parallaxInverse, options);
+            }
             observer.observe(observable);
         });
     }, {}] }, {}, [1]);

@@ -81,7 +81,13 @@
     display: flex;
     justify-content: space-between;
     height: 26px;
-    bottom: -35px;
+    bottom: 7px;
+    left: 20px;
+
+    @include responsive($md){
+      bottom: 10px;
+      left: 40px;
+    }
 
     .slider__controls-number {
       display: flex;

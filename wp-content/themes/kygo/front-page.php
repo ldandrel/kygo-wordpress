@@ -27,11 +27,24 @@
 <section class="last-new">
 
 <?php
-    $lastAlbum = get_field('last_album');
-    $showLastAlbum = get_field('show-last-album');
+    if(get_field('display-last-news')){
+        $last = get_field('songs');
+    } else {
+        $last = get_posts(array(
+            'post_type' => 'song',
+            'posts_per_page' => 1,
+            'meta_key' => 'date',
+            'orderby' => 'meta_value',
+            'order' => 'DESC'
+        ));
+    }
 
-    if( $showLastAlbum && $lastAlbum ):
-        foreach( $lastAlbum as $p ):
+
+
+
+    if($last):
+        foreach( $last as $p ):
+            if(get_field('selection-type', $p->ID) == 'Album'):
 
         $image = get_field('picture', $p->ID);
         ?>
@@ -73,20 +86,19 @@
             </div>
         </div>
 
-    <?php endforeach; ?>
         <div class="album__buy">
             <a href="<?= get_post_field('buy', $p->ID)?>" target="_blank"><img src="<?= get_template_directory_uri() ?>/assets/img/buy.png" alt="buy"></a>
         </div>
-</section>
-
+            <?php endif; ?>
+        <?php endforeach; ?>
 <?php endif; ?>
+</section>
 
 
 <section class="tour-homepage">
     <div class="tour__right">
         <div class="tour__slider">
             <div class="slider">
-                <div class="slider-backgroud m-object m-object--parallax"></div>
                 <?php
 
                 $images = get_field('slider');
@@ -102,6 +114,7 @@
                     </div>
                 <?php endforeach; ?>
                 <?php endif; ?>
+                <div class="slider-backgroud m-object m-object--parallax">
 
                 <div class="tour-photo-controls slider__controls">
                     <span class="slider__controls-number"><strong>01 &nbsp</strong>|&nbsp<?= sprintf("%02d", count($images)) ?></span>
@@ -110,6 +123,7 @@
                         <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
                         <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
                     </span>
+                </div>
                 </div>
             </div>
         </div>
@@ -161,6 +175,7 @@
 
 <section class="music">
     <div class="music__banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
+        <div class="music-backgroud m-object m-object--parallax-inverse"></div>
         <div class="music__content">
             <h2>Music.</h2>
             <p>

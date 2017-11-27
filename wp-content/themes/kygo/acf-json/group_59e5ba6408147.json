@@ -5,7 +5,7 @@
         {
             "key": "field_5a0b7859bc78e",
             "label": "Type",
-            "name": "type",
+            "name": "selection-type",
             "type": "select",
             "value": null,
             "instructions": "Select the type of song to display the corresponding fields",
@@ -331,5 +331,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1511745515
+    "modified": 1511773681
 }

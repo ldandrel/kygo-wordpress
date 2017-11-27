@@ -19,11 +19,19 @@ for (let i=0; i<=1; i+= 0.01) {
 const parallax = (event, observer) => {
     const target = event[0].target
     const ratio = event[0].intersectionRatio * 40
-    console.log((event[0].intersectionRatio * 40))
-    // console.log(event[0].boundingClientRect.y > 0)
-   // console.log(ratio)
     if(ratio > 0) {
         target.style.transform = `translateY(${ratio}px)`
+    }
+}
+
+
+
+const parallaxInverse = (event, observer) => {
+    const target = event[0].target
+    const ratio = event[0].intersectionRatio * 40
+    console.log(ratio)
+    if(ratio > 0) {
+        target.style.transform = `translateY(-${ratio}px)`
     }
 
 }
@@ -32,8 +40,12 @@ const parallax = (event, observer) => {
 
 observables.forEach((observable, i) => {
         options.threshold = thresholdSets
-        console.log(options)
-        let observer = new IntersectionObserver(parallax, options)
+        let observer = ''
+        if (observable.classList.contains(`${queryString}--parallax`)) {
+            observer = new IntersectionObserver(parallax, options)
+        } else if (observable.classList.contains(`${queryString}--parallax-inverse`)) {
+            observer = new IntersectionObserver(parallaxInverse, options)
+        }
         observer.observe(observable)
 })
 
