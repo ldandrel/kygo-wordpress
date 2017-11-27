@@ -63,7 +63,7 @@
     left:-20px;
     background: $white;
     border-radius:$border-radius 0 0 $border-radius ;
-    z-index: -1;
+    z-index: -10;
 
     @include responsive($md){
       top:7px;
@@ -107,6 +107,7 @@
       display: flex;
       width: 85%;
       justify-content: space-around;
+      margin:auto;
 
       @include responsive($sm){
         width: 90%;
