@@ -23,7 +23,7 @@ function kygo_custom_tours() {
     $args = array(
         'labels'              => $labels,
         'hierarchical'        => false,
-        'public'              => false,
+        'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
         'menu_icon'           => 'dashicons-admin-site',

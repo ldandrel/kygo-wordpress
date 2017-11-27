@@ -38,7 +38,7 @@ function kygo_custom_award() {
         'menu_icon' => 'dashicons-editor-quote',
         'supports' => array(),
         'taxonomies' => array(),
-        'public' => false,
+        'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
         'show_in_admin_bar' => true,
