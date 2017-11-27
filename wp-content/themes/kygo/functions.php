@@ -98,5 +98,10 @@ require get_template_directory() . '/inc/ajax.php';
  */
 require get_template_directory() . '/inc/theme_settings.php';
 
+/*
+ * Translate
+ */
+require get_template_directory() . '/inc/language.php';
+
 
 

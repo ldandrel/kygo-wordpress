@@ -7,7 +7,7 @@
 
 <section class="landing">
     <div class="landing__title">
-        <h1>Kygo</h1>
+        <h1><?php the_field('artist_name', 'option'); ?></h1>
     </div>
 
     <div class="landing__circle circle"></div>
@@ -67,7 +67,7 @@
             </div>
 
             <div class="news-header__right">
-                <h2 class="news-header__title"><?= get_the_title( $p->ID ); ?> is out now.</h2>
+                <h2 class="news-header__title"><?= get_the_title( $p->ID ); ?> <?php pll_e('is out now'); ?>.</h2>
                 <p class="news-header__description last-new__description"><?= get_post_field('description', $p->ID)?></p>
                 <div class="last-new__playlist">
                     <ol>
@@ -132,7 +132,7 @@
     </div>
     <div class="tour__left">
         <div class="tour__title">
-            <h2>Tour Date.</h2>
+            <h2><?php pll_e('tour date') ?>.</h2>
         </div>
 
         <div class="tour__list">
@@ -140,8 +140,8 @@
             <?php
             $args = array (
                 'post_type'              => 'tour',
-                'numberposts'         => 1,
-                'orderby'                => 'RAND(3)'
+                'orderby'                =>'rand',
+                'posts_per_page'         =>'1'
 
             );
 
@@ -197,7 +197,7 @@
     <section class="news news-container">
 
         <div class="news-title">
-            <h2>News.</h2>
+            <h2><?php pll_e('news') ?>.</h2>
         </div>
 
         <div class="news-list">

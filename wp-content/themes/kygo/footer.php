@@ -1,6 +1,6 @@
 	<footer class="footer">
         <div class="footer__socials">
-            <h2>Follow Kygo</h2>
+            <h2><?php pll_e('follow') ?> <?php the_field('artist_name', 'option'); ?></h2>
             <?php wp_nav_menu(array(
                 'container' => '',
                 'theme_location'=>'socials'
