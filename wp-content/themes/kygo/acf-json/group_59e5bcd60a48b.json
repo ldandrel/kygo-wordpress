@@ -3,26 +3,10 @@
     "title": "Home",
     "fields": [
         {
-            "key": "field_59e5cfa2d0624",
-            "label": "Last album",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_59e5ee2eda0ad",
-            "label": "Show",
-            "name": "show-last-album",
-            "type": "true_false",
+            "key": "field_5a1bd1fbf670b",
+            "label": "Last new",
+            "name": "last_new",
+            "type": "group",
             "value": null,
             "instructions": "",
             "required": 0,
@@ -32,90 +16,63 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Yes",
-            "ui_off_text": "Non"
-        },
-        {
-            "key": "field_59e5d18494136",
-            "label": "Order",
-            "name": "order",
-            "type": "select",
-            "value": null,
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_59e5ee2eda0ad",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "1",
-                "2": "2",
-                "3": "3"
-            },
-            "default_value": [
-                1
-            ],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
-        },
-        {
-            "key": "field_59e5bcd96638c",
-            "label": "Album",
-            "name": "last_album",
-            "type": "relationship",
-            "value": null,
-            "instructions": "Select the last album to show in homepage",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "song"
-            ],
-            "taxonomy": [],
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": 1,
-            "return_format": "object"
-        },
-        {
-            "key": "field_59e5efff7ee2c",
-            "label": "Tour",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_59e5ee2eda0ad",
+                    "label": "Display",
+                    "name": "display-last-news",
+                    "type": "true_false",
+                    "value": null,
+                    "instructions": "Select if you want or not display manually a song",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "Non"
+                },
+                {
+                    "key": "field_5a1bd14f63c05",
+                    "label": "Songs",
+                    "name": "songs",
+                    "type": "relationship",
+                    "value": null,
+                    "instructions": "Select the song to display in homepage",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59e5ee2eda0ad",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "song"
+                    ],
+                    "taxonomy": [],
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": 1,
+                    "max": 1,
+                    "return_format": "object"
+                }
+            ]
         },
         {
             "key": "field_59e9b27d3b1a3",
@@ -144,10 +101,11 @@
             "mime_types": ".png, .jpg, .jpeg"
         },
         {
-            "key": "field_59e5f2bf5f05f",
-            "label": "Section 3",
-            "name": "",
-            "type": "tab",
+            "key": "field_5a1bd268eaf31",
+            "label": "Section music",
+            "name": "section_music",
+            "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -156,28 +114,29 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_59e5f2e773334",
-            "label": "Title",
-            "name": "title-section-3",
-            "type": "text",
-            "value": null,
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Music",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_59e5f2e773334",
+                    "label": "Title",
+                    "name": "title-section-3",
+                    "type": "text",
+                    "value": null,
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Music",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -207,5 +166,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1510736105
+    "modified": 1511772829
 }
