@@ -35,7 +35,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 this.$el.slider = slider;
                 this.$el.controls = controls;
                 this.$el.slides = this.$el.slider.querySelectorAll('.slider__wrapper');
-                this.$el.current = this.$el.controls.querySelector('p strong');
+                this.$el.current = this.$el.controls.querySelector('.slider__controls-number strong');
                 this.$el.next = this.$el.controls.querySelector('.slider__next');
                 this.$el.prev = this.$el.controls.querySelector('.slider__prev');
                 this.$el.timeline = this.$el.controls.querySelector('.slider__timeline');
@@ -71,29 +71,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }, 3000);
                     _this.prev();
                 });
-
-                window.addEventListener('resize', function () {
-                    _this.resize();
-                });
-
-                this.resize();
             }
 
+            /*
+            * ()
+            * update_control_before
+            * Called on click on next and with setinterval
+            * Next slide
+            */
+
+
             _createClass(Slider, [{
-                key: "resize",
-                value: function resize() {
-
-                    this.$el.slider.style.height = this.$el.slider.querySelector('img').offsetHeight + 'px';
-                }
-
-                /*
-                * ()
-                * update_control_before
-                * Called on click on next and with setinterval
-                * Next slide
-                */
-
-            }, {
                 key: "update_control_before",
                 value: function update_control_before() {
                     var _iteratorNormalCompletion = true;

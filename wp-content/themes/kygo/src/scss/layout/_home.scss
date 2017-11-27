@@ -181,6 +181,12 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  height: 100vh;
+
+  @include responsive($sm){
+    height: 90vh;
+
+  }
 
   @include responsive($md){
     justify-content: center;
@@ -216,9 +222,20 @@
     margin-top:calc(10% + 40px);
     padding:0 24px;
 
+    @include responsive($sm){
+      padding: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
 
     @include responsive($md){
+      width: 30vw;
+
       order:1;
+      margin:0;
     }
 
     .date{
@@ -252,19 +269,51 @@
   .tour__right {
 
     width: 100vw;
+    height: 50%;
 
 
     @include responsive($md){
-      width: 60vw;
+      height: 100%;
+      width: 70vw;
       order:2;
     }
 
     .tour__slider {
       width: 80%;
+      height: 100%;
+
       margin-left:20%;
+
+      @include responsive($sm){
+        width: 60%;
+        margin: auto;
+
+        .slider__wrapper img, .slider-backgroud {
+          border-radius: $border-radius !important;
+        }
+
+      }
+
+
+      @include responsive($md){
+        width: 80%;
+        display: flex;
+        align-items: center;
+      }
+
+
       .slider {
         width: 100%;
-        height: 175px;
+        height: 100%;
+
+        @include responsive($sm){
+          max-height: 400px;
+        }
+
+        @include responsive($md){
+          max-height: 525px;
+        }
+
 
       }
     }
@@ -350,7 +399,7 @@
   .news__more{
     margin-left: 24px;
 
-    @include responsive($md){
+    @include responsive($sm){
       text-align: center;
     }
   }

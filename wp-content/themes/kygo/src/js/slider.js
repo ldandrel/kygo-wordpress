@@ -10,7 +10,7 @@ class Slider {
         this.$el.slider = slider
         this.$el.controls = controls
         this.$el.slides = this.$el.slider.querySelectorAll('.slider__wrapper')
-        this.$el.current = this.$el.controls.querySelector('p strong')
+        this.$el.current = this.$el.controls.querySelector('.slider__controls-number strong')
         this.$el.next = this.$el.controls.querySelector('.slider__next')
         this.$el.prev = this.$el.controls.querySelector('.slider__prev')
         this.$el.timeline = this.$el.controls.querySelector('.slider__timeline')
@@ -47,18 +47,8 @@ class Slider {
             this.prev()
         })
 
-        window.addEventListener('resize', () => {
-            this.resize()
-        })
-
-        this.resize()
     }
 
-    resize(){
-
-
-        this.$el.slider.style.height = this.$el.slider.querySelector('img').offsetHeight + 'px'
-    }
 
     /*
     * ()

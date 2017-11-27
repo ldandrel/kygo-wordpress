@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+
+
+
 <section class="landing">
     <div class="landing__title">
         <h1>Kygo</h1>
@@ -23,7 +26,6 @@
 
 <section class="last-new">
 
-
 <?php
     $lastAlbum = get_field('last_album');
     $showLastAlbum = get_field('show-last-album');
@@ -37,6 +39,8 @@
         <div class="news-header">
             <div class="news-header__left">
                 <div class="news-header__image-container">
+                    <div class="new-header__left-backgroud m-object m-object--parallax"></div>
+
                     <?php if( !empty($image) ): ?>
                         <div class="news-header__image">
                             <div>
@@ -82,6 +86,7 @@
     <div class="tour__right">
         <div class="tour__slider">
             <div class="slider">
+                <div class="slider-backgroud m-object m-object--parallax"></div>
                 <?php
 
                 $images = get_field('slider');
@@ -99,10 +104,12 @@
                 <?php endif; ?>
 
                 <div class="tour-photo-controls slider__controls">
-                    <p><strong>01</strong> | <?= sprintf("%02d", count($images)) ?></p>
-                    <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
-                    <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
-                    <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
+                    <span class="slider__controls-number"><strong>01 &nbsp</strong>|&nbsp<?= sprintf("%02d", count($images)) ?></span>
+                    <span class="slider__controls-right">
+                        <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
+                        <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
+                        <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
+                    </span>
                 </div>
             </div>
         </div>
