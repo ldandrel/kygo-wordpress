@@ -32,9 +32,7 @@ if( !function_exists( 'kygo_setup' ) ) {
         remove_action( 'wp_head', 'start_post_rel_link', 10 );
         remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
         add_filter( 'xmlrpc_enabled', '__return_false' );
-        // Remove added <p> & <br> tags in WordPress WYSIWYG
-        remove_filter( 'the_content', 'wpautop' );
-        remove_filter( 'the_excerpt', 'wpautop' );
+
         // Hide login errors
         add_filter( 'login_errors', create_function( '$a', "return null;" ) );
         // Add theme support for selective refresh for widgets
