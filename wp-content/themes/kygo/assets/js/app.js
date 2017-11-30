@@ -13,14 +13,23 @@
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
+        var close_alert_button = document.querySelector('.header__alert-close');
 
+        //close alert band in header
+        function closeAlert() {
+            document.querySelector('.header').classList.remove('alert');
+        }
+
+        //calling on click the function to close alert band in header
+        close_alert_button.addEventListener('click', function () {
+            closeAlert();
+        });
+
+        //close Popup on map page
         function closePopup() {
             document.querySelector('.popup-map').classList.remove('is-active');
         }
         /*
-        
-        
-        
         
         function ajaxTourList() {
             let xhr = new XMLHttpRequest();

@@ -1,13 +1,16 @@
 .header {
   position: fixed;
   width: 100vw;
-  height: 80px;
+  height: 120px;
   z-index:$zindex-9;
   background: $white;
   transition: $transition;
   top: 0;
+  transform: translateY(-50px);
 
   .header__alert-band {
+    transition: 0.3s all $animation-bezier;
+    visibility: hidden;
     background: $main-color;
     padding: 10px 40px;
     height: 50px;
@@ -16,20 +19,27 @@
     flex-flow: row nowrap;
     align-items: center;
 
-    .header__alert-close
-    {
+    .header__alert-text {
+      width: 100%;
+    }
+
+    .header__alert-close {
       width: 24px;
       height: 24px;
+      cursor: pointer;
     }
   }
 
   @include responsive($md) {
-    height: 100px;
+    height: 150px;
   }
 
   .header--desktop{
+    transition: 0.15s all $animation-bezier;
     display: none;
+
     @include responsive($md) {
+      transition: 0.15s all $animation-bezier;
       display: flex;
       justify-content: space-around;
       height: 64px;
@@ -158,9 +168,6 @@
   }
 }
 
-
-
-
 #menu-external-link-fr li, #menu-external-link-en li {
     border: 1px solid $black;
     border-radius: 5px;
@@ -169,10 +176,10 @@
 
 .header--scrolling{
   box-shadow: $box-shadow;
-  height: 60px;
+  height: 110px;
 
   @include responsive($md){
-    height: 80px;
+    height: 130px;
   }
 
   .header--desktop {
@@ -182,8 +189,6 @@
       margin:20px;
       height: 40px;
     }
-
-
   }
 
   .header--mobile .header__top{
@@ -234,6 +239,14 @@
 }
 
 .header.alert {
-  height: 140px;
+  transform: translateX(0px);
+
+  .header__alert-band {
+    visibility: visible;
+  }
+
+   .header--mobile nav{
+    height: calc(100vh - 130px);
+  }
 }
 
