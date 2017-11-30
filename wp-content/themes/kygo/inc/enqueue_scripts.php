@@ -25,6 +25,10 @@ function kygo_script_enqueue() {
         wp_enqueue_script('js-news', get_template_directory_uri() . '/assets/js/news.js', array(), '1.0.0', true);
     }
 
+    if(is_page('Music')){
+        wp_enqueue_script('js-music', get_template_directory_uri() . '/assets/js/music.js', array(), '1.0.0', true);
+    }
+
 
 
 }

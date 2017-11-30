@@ -1,6 +1,5 @@
 .header-music{
   margin-top: 80px;
-  position: relative;
 
   @include responsive($md){
     margin-top: 100px;
@@ -24,8 +23,8 @@
     width: 90%;
     left:5%;
     top: 80%;
-
-    position: absolute;
+    margin-top: -15vh;
+    position:relative;
     z-index: 2;
     box-shadow: $box-shadow;
     background-color: $white;
@@ -46,6 +45,162 @@
   }
 }
 
-.album{
-  margin-top: 400px;
+.timeline-container {
+  margin-top:52px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 55px;
+  background: $white;
+  z-index: 999;
+  padding: 20px 0;
+  box-shadow: 2px 6px 10px 0px rgba(0,0,0,0.15);
+
+
+  .timeline__next{
+    padding-right:24px;
+  }
+
+  .timeline__prev{
+    padding-left:24px;
+  }
+  .timeline {
+
+    width: 75vw;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    color:$text-color;
+
+    .active{
+      color:$black;
+    }
+
+    @include responsive($md) {
+      position: relative;
+    }
+
+    > ul {
+      display: flex;
+      justify-content: space-between;
+      overflow-x: scroll;
+      position: relative;
+
+      @include responsive($md) {
+        position: absolute;
+        right: 60px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      font-size: 30px;
+      padding: 0 12px;
+      border-right: 1px solid $main-color;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+
+      @include responsive($md) {
+        font-size: 22px;
+        padding: 0;
+      }
+    }
+
+    .timeline-month {
+      display: none;
+      font-weight: normal;
+      font-size: 16px;
+      li {
+        padding: 9px 0;
+      }
+    }
+  }
+}
+
+
+.content-music{
+    margin-top: 60px;
+
+     >div:nth-child(odd) .news-header{
+      background-color:$background-light-gray !important;
+    }
+
+}
+
+
+.award {
+  position: relative;
+  color:$white;
+  display: flex;
+  align-items: center;
+  padding: 80px 24px;
+
+  @include responsive($md){
+    padding: 0;
+    width: 85vw;
+    height: 320px;
+    justify-content: center;
+
+  }
+
+
+  &:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: $black;
+
+
+    @include responsive($md) {
+      border-radius: 0 $border-radius $border-radius 0;
+      width: 85vw;
+    }
+
+    @include responsive($md) {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+
+
+  .award-content {
+    width: 50%;
+
+    border-top: 1px solid $white;
+    padding-top: 40px;
+
+    @include responsive($md){
+      padding-top: 50px;
+    }
+
+    .award-content__title {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .award-content__award {
+      padding: 10px 0;
+      color: $main-color;
+      font-size: 30px;
+      font-family: $title-font;
+
+      @include responsive($md) {
+        font-size: 42px;
+      }
+    }
+  }
 }
