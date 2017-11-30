@@ -10,8 +10,8 @@ function kygo_script_enqueue() {
     wp_enqueue_script('js-parallax', get_template_directory_uri() . '/assets/js/parallax.js', array(), '1.0.0', true);
     wp_localize_script('js', 'ajaxurl', admin_url('admin-ajax.php') );
 
-
     if(is_front_page()){
+        wp_enqueue_script('js-home-tour', get_template_directory_uri() . '/assets/js/home-tour.js', array(), '1.0.0', true);
         wp_enqueue_script('js-slider', get_template_directory_uri() . '/assets/js/slider.js', array(), '1.0.0', true);
     }
 

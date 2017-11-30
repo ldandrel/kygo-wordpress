@@ -37,9 +37,6 @@
         ));
     }
 
-
-
-
     if($last):
         foreach( $last as $p ):
             if(get_field('selection-type', $p->ID) == 'Album'):
@@ -92,7 +89,6 @@
 <?php endif; ?>
 </section>
 
-
 <section class="tour-homepage">
     <div class="tour__right">
         <div class="tour__slider">
@@ -113,15 +109,14 @@
                 <?php endforeach; ?>
                 <?php endif; ?>
                 <div class="slider-backgroud m-object m-object--parallax">
-
-                <div class="tour-photo-controls slider__controls">
-                    <span class="slider__controls-number"><strong>01 &nbsp</strong>|&nbsp<?= sprintf("%02d", count($images)) ?></span>
-                    <span class="slider__controls-right">
-                        <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
-                        <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
-                        <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
-                    </span>
-                </div>
+                    <div class="tour-photo-controls slider__controls">
+                        <span class="slider__controls-number"><strong>01 &nbsp</strong>|&nbsp<?= sprintf("%02d", count($images)) ?></span>
+                        <span class="slider__controls-right">
+                            <div class="slider__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
+                            <div class="slider__timeline"><div class="slider__timeline--progress"></div></div>
+                            <div class="slider__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,23 +127,22 @@
         </div>
 
         <div class="tour__list">
-
+            <ul>
             <?php
             $args = array (
                 'post_type'              => 'tour',
                 'orderby'                =>'rand',
                 'posts_per_page'         =>'1'
-
             );
 
             $query = new WP_Query( $args );
 
             if($query->posts):
+                $post_key = 0;
                 foreach ($query->posts as $tour):
-                        while (have_rows('locations', $tour->ID)): the_row(); ?>
+                    while (have_rows('locations', $tour->ID)): the_row(); ?>
 
-                <ul>
-                    <li>
+                    <li class="tour__date" data-index="<?= $post_key ?>">
                         <span><?php the_sub_field('city');?></span>
                         <?php if( have_rows('show') ):
                             while ( have_rows('show') ) : the_row(); ?>
@@ -156,15 +150,13 @@
                              <?php endwhile;
                         endif; ?>
                     </li>
-                </ul>
-
-                 <?php endwhile;
+                    <?php $post_key++; ?>
+                    <?php endwhile;
                 endforeach; ?>
-                <a href="<?= get_permalink( get_page_by_title( 'tour' ) ) ?>" class="btn-kygo">
-                    All dates
-                </a>
              <?php endif; ?>
+            </ul>
         </div>
+        <a href="<?= get_permalink( get_page_by_title( 'tour' ) ) ?>" class="btn-kygo">All dates</a>
     </div>
 </section>
 

@@ -182,7 +182,6 @@
 
   @include responsive($sm) {
     height: 90vh;
-
   }
 
   @include responsive($md) {
@@ -191,7 +190,6 @@
     height: 780px;
     padding: 0;
   }
-
 
   &:before {
     content: '';
@@ -203,21 +201,19 @@
     top: 0;
     background: $background-light-gray;
 
-    @include responsive($md){
+    @include responsive($md) {
       width: 90%;
     }
 
-    @include responsive($md){
+    @include responsive($md) {
       justify-content: space-between;
       align-items: center;
     }
-
   }
-
 
   .tour__left {
     margin-top:calc(10% + 40px);
-    padding:0 24px;
+    padding: 0 24px;
 
     @include responsive($sm){
       padding: 0;
@@ -227,36 +223,75 @@
       align-items: center;
     }
 
-
-    @include responsive($md){
+    @include responsive($md) {
       width: 30vw;
-
       order:1;
       margin:0;
     }
 
-    .date{
-      color:$black;
+    .date {
+      color: $black;
     }
 
     .tour__list {
+
       ul {
         margin-bottom: 29px;
+        position: relative;
+        height: 100px;
+        width: 350px;
+        margin: 10px 0px 30px 0px;
+
+        li.active-1 {
+          top: 0%;
+          visibility: visible;
+        }
+
+        li.active-2 {
+          top: 35%;
+          visibility: hidden;
+        }
+
+        li.active-3 {
+          top: 70%;
+          visibility: hidden;
+        }
+
+        li.active {
+          opacity: 1;
+        }
+
         li {
+          transition: opacity 1s ease;
+          position: absolute;
           padding: 10px 0;
-          span{
+          opacity: 0;
+          visibility: hidden;
+          top: 0;
+
+          span {
             font-size: 1.875rem;
             font-weight: bold;
           }
-          &:not(:first-child) {
-            display: none;
+        }
+      }
 
-            @include responsive($md) {
-              display: inherit;
-            }
+      @include responsive($md) {
+        ul {
+          height: 400px;
+          width: 250px;
+          margin: 20px 0px 40px 60px;
+
+          li.active-2 {
+            visibility: visible;
+          }
+
+          li.active-3 {
+            visibility: visible;
           }
         }
       }
+
       a {
         margin-top: 30px;
       }
@@ -268,8 +303,7 @@
     width: 100vw;
     height: 50%;
 
-
-    @include responsive($md){
+    @include responsive($md) {
       height: 100%;
       width: 70vw;
       order:2;
@@ -278,7 +312,6 @@
     .tour__slider {
       width: 80%;
       height: 100%;
-
       margin-left:20%;
 
       @include responsive($sm){
@@ -288,9 +321,7 @@
         .slider__wrapper img, .slider-backgroud {
           border-radius: $border-radius !important;
         }
-
       }
-
 
       @include responsive($md){
         width: 80%;
@@ -322,14 +353,10 @@
   }
 }
 
-
-
 .music {
   margin-top:80px;
   display: flex;
   height: 450px;
-
-
 
   .music__banner{
     width: 100%;
