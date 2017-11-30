@@ -10,7 +10,13 @@
 
 </head>
 <body>
-<header class="header">
+
+<header class="<?php if(get_field('alert_display', 'option')) echo 'alert'; ?> header">
+
+    <div class="alert-band">
+        <p class="alert-band__text"><?php the_field('alert_message', 'option'); ?></p>
+    </div>
+
     <div class="header--desktop">
         <div class="header__left--desktop">
             <?php wp_nav_menu(array(

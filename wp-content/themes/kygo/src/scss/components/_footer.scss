@@ -29,71 +29,86 @@
     }
 
     .footer__submit-input {
-      padding: 15px 20px;
+      padding: 15px 25px;
       background: $black;
       border: none;
       height: 100%;
-    }
-  }
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 25px;
+      transition: all 0.1s $easing;
+      cursor: pointer;
 
-  .footer__socials {
-    color: white;
-    background: $black;
+      &:hover {
+        background-size: 29px;
+      }
+    }
+}
+
+.footer__socials {
+  color: white;
+  background: $black;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
+  ul#menu-social-links-2 {
     display: flex;
-    width: 50%;
-    height: 100%;
-    flex-flow: column wrap;
-    justify-content: center;
+    margin-top: 36px;
+    li {
+      padding:0 12.5px;
+    }
+
+     i {
+       color:$white;
+       transition: $transition;
+       font-size: 22px !important;
+
+       &:hover {
+         color:$main-color;
+       }
+    }
+  }
+
+  .footer__social-copyright {
+    display: flex;
+  }
+}
+
+.footer__privacy {
+  position: absolute;
+  bottom:20px;
+  left:5%;
+
+  ul {
+    display: flex;
     align-items: center;
+    flex-direction: column;
 
-    ul#menu-social-links-2 {
-      display: flex;
-      margin-top:36px;
-      li {
-        padding:0 12.5px;
-      }
+    @include responsive($md){
+      flex-direction: row;
+      justify-content: space-between;
 
-       i {
-         color:$white;
-
-         &:hover {
-           color:$main-color;
-         }
-      }
     }
-  }
 
-  .footer__privacy {
-    position: absolute;
-    bottom:20px;
-    left:5%;
-
-    ul {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
+    li{
+      padding: 5px 0px;
       @include responsive($md){
-        flex-direction: row;
-        justify-content: space-between;
-
-      }
-
-      li{
-        padding: 5px 0px;
-        @include responsive($md){
-          padding: 0px 40px 0px 0px;
-        }
-      }
-
-      @include responsive($md) {
-        bottom: 27px;
-      }
-
-      a {
-        color: $footer;
+        padding: 0px 40px 0px 0px;
       }
     }
+
+    @include responsive($md) {
+      bottom: 27px;
+    }
+
+    a {
+      color: $footer;
+    }
   }
+}
 }
 

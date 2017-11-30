@@ -7,6 +7,13 @@
   transition: $transition;
   top: 0;
 
+  .alert-band {
+    background: $main-color;
+    padding: 10px 0px;
+    height: 50px;
+    color: white;
+  }
+
   @include responsive($md) {
     height: 100px;
   }
@@ -215,5 +222,9 @@
       }
     }
   }
+}
+
+.header.alert {
+  height: 140px;
 }
 

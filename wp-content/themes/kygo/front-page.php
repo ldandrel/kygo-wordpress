@@ -1,10 +1,6 @@
 <?php get_header(); ?>
 
 
-
-
-
-
 <section class="landing">
     <div class="landing__title m-object m-object--parallax-title">
         <h1><?php the_field('artist_name', 'option'); ?></h1>

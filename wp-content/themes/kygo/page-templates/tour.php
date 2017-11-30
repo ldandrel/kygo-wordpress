@@ -12,6 +12,7 @@ $query = new WP_Query(array(
     'numberposts' => -1
 ));
 
+$json = json_encode($query->posts)
 
 ?>
 
@@ -102,5 +103,5 @@ $query = new WP_Query(array(
    </div>
 </section>
 
-
+<s
 <?php get_footer() ?>
