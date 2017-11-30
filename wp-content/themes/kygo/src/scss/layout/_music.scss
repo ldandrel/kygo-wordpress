@@ -1,8 +1,51 @@
 .header-music{
+  margin-top: 80px;
+  position: relative;
+
+  @include responsive($md){
+    margin-top: 100px;
+  }
+
   .header-music__img{
-    height: 70vh;
+    height: 60vh;
+
+    @include responsive($md){
+      height: 70vh;
+    }
+
     img {
       object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
   }
+
+  .header-music__content{
+    width: 90%;
+    left:5%;
+    top: 80%;
+
+    position: absolute;
+    z-index: 2;
+    box-shadow: $box-shadow;
+    background-color: $white;
+    border-radius: $border-radius;
+
+    @include responsive($md){
+      width: 40%;
+      left: 30%;
+
+
+    }
+
+    div{
+      padding:40px;
+      p{padding-top:15px;}
+    }
+
+  }
+}
+
+.album{
+  margin-top: 400px;
 }
