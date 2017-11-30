@@ -14,21 +14,17 @@ class Map {
 
         this.icon = {
             url: this.$el.mapContainer.querySelector('#marker').src
-
         }
 
         this.iconActive = {
             url: this.$el.mapContainer.querySelector('#marker-active').src
         }
 
-
-
         this.init(map, markers)
 
         this.$el.closePopup.addEventListener('click', () => {
            this.closePopup()
         })
-
     }
 
 
@@ -39,10 +35,7 @@ class Map {
      */
     init(map_container, markers) {
 
-
-
         let style = require('./map.json')
-
 
         let map = new google.maps.Map(map_container, {
             center: new google.maps.LatLng(0, 0),
@@ -67,9 +60,6 @@ class Map {
         }
 
         this.centerMap(map)
-
-
-
     }
 
     /*
@@ -80,8 +70,6 @@ class Map {
     addMarker($marker, map) {
 
         let latlng =  new google.maps.LatLng(parseFloat($marker.getAttribute('data-lat')), parseFloat($marker.getAttribute('data-lng')))
-
-
 
         let marker = new google.maps.Marker({
             position: latlng,
@@ -127,7 +115,7 @@ class Map {
      * Call in init map
      * Center map for display all marker
      */
-    centerMap(map){
+    centerMap(map) {
         let bounds = new google.maps.LatLngBounds()
 
         this.markers.forEach((marker) => {
@@ -135,19 +123,14 @@ class Map {
             bounds.extend( latlng );
         })
 
-        if( this.markers.length === 1 )
-        {
+        if( this.markers.length === 1 ) {
             map.setCenter( bounds.getCenter() );
             map.setZoom( 4 );
         }
-        else
-        {
+        else {
             map.fitBounds( bounds );
         }
-
     }
-
-
 }
 
 let map = new Map(

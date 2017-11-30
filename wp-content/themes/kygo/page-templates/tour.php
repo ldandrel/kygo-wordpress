@@ -103,5 +103,5 @@ $json = json_encode($query->posts)
    </div>
 </section>
 
-<s
+
 <?php get_footer() ?>

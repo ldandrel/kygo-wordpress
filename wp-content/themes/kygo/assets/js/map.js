@@ -39,7 +39,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.icon = {
           url: this.$el.mapContainer.querySelector('#marker').src
-
         };
 
         this.iconActive = {
