@@ -6,7 +6,7 @@
         <h1><?php the_field('artist_name', 'option'); ?></h1>
     </div>
 
-    <div class="landing__circle circle"></div>
+    <div class="landing__circle circle m-object" data-parralax="4"></div>
 
     <div class="landing__portrait">
         <img src="<?= get_template_directory_uri() ?>/assets/img/portrait_kygo.png" alt="portrait-kygo">
@@ -47,7 +47,7 @@
         <div class="news-header">
             <div class="news-header__left">
                 <div class="news-header__image-container">
-                    <div class="new-header__left-backgroud m-object m-object--parallax" data-parralax="5"></div>
+                    <div class="new-header__left-backgroud m-object" data-parralax="5"></div>
 
                     <?php if( !empty($image) ): ?>
                         <div class="news-header__image">
@@ -108,7 +108,7 @@
                     </div>
                 <?php endforeach; ?>
                 <?php endif; ?>
-                <div class="slider-backgroud m-object m-object--parallax" data-parralax="20">
+                <div class="slider-backgroud m-object" data-parralax="20">
                     <div class="tour-photo-controls slider__controls">
                         <span class="slider__controls-number"><strong>01 &nbsp</strong>|&nbsp<?= sprintf("%02d", count($images)) ?></span>
                         <span class="slider__controls-right">
@@ -160,12 +160,9 @@
     </div>
 </section>
 
-
-
-
 <section class="music">
     <div class="music__banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
-        <div class="music-backgroud m-object m-object--parallax-inverse" data-parralax="3"></div>
+        <div class="music-backgroud m-object" data-parralax="4"></div>
         <div class="music__content">
             <h2>Music.</h2>
             <p>
