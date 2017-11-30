@@ -13,8 +13,9 @@
 
 <header class="<?php if(get_field('alert_display', 'option')) echo 'alert'; ?> header">
 
-    <div class="alert-band">
-        <p class="alert-band__text"><?php the_field('alert_message', 'option'); ?></p>
+    <div class="header__alert-band">
+        <p class="header__alert-text"><?php the_field('alert_message', 'option'); ?></p>
+        <img src="<?= get_template_directory_uri() ?>/assets/img/alert-close.svg" class="header__alert-close">
     </div>
 
     <div class="header--desktop">
@@ -88,15 +89,5 @@
 
             ?>
         </nav>
-
-
-
     </div>
-
-
-
-
-
-
-
 </header>
