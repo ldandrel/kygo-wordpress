@@ -7,21 +7,19 @@
   transition: $transition;
   top: 0;
 
-  @include responsive($md){
+  @include responsive($md) {
     height: 100px;
   }
 
-
   .header--desktop{
     display: none;
-    @include responsive($md){
+    @include responsive($md) {
       display: flex;
       justify-content: space-around;
       height: 64px;
       margin: 18px 20px;
       align-items: center;
     }
-
 
     .header__right--desktop{
       display: flex;
@@ -38,8 +36,6 @@
         flex:1;
       }
     }
-
-
   }
 
   .header--mobile{
@@ -68,8 +64,6 @@
   a.custom-logo-link {
     height: 100%;
     transition: $transition;
-
-
 
     @include responsive($md){
       text-align: center;
