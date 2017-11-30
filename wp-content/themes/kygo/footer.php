@@ -1,4 +1,12 @@
 	<footer class="footer">
+        <div class="footer__newsletter">
+            <h2><?php pll_e('subscribe') ?> <?php the_field('artist_name', 'option'); ?></h2>
+            <form action="#" method="post" class="footer__email-input">
+                <input type="text" name="email" placeholder="Enter your email adress">
+                <input type="submit" value="">
+            </form>
+        </div>
+
         <div class="footer__socials">
             <h2><?php pll_e('follow') ?> <?php the_field('artist_name', 'option'); ?></h2>
             <?php wp_nav_menu(array(
