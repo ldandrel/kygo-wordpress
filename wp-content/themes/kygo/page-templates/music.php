@@ -80,7 +80,7 @@ $songs = get_posts(array(
         <div class="news-header">
             <div class="news-header__left">
                 <div class="news-header__image-container">
-                    <div class="new-header__left-backgroud m-object m-object--parallax"></div>
+                    <div class="new-header__left-backgroud m-object" data-parralax="5"></div>
 
                     <?php if( !empty($image) ): ?>
                         <div class="news-header__image">

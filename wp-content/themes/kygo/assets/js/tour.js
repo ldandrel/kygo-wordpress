@@ -26,7 +26,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _classCallCheck(this, Tour);
 
             this.$el = {};
-            this.$el.container = container;
+            this.$el.list_date = this.$el.container = container;
             this.$el.search = this.$el.container.querySelector('.tour__search-input input');
             this.$el.filters = this.$el.container.querySelectorAll('.tour__search-filter ul li');
 
