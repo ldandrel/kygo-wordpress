@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<header class="<?php if(get_field('alert_display', 'option')) echo 'alert'; ?> header">
+<header class="<?= (get_field('alert_display', 'option') ? 'alert' : '') ?> header">
 
     <div class="header__alert-band">
         <p class="header__alert-text"><?php the_field('alert_message', 'option'); ?></p>
