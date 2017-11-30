@@ -16,44 +16,68 @@
         var queryString = 'm-object';
         var observables = Array.from(document.querySelectorAll("." + queryString));
 
-        var options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: []
-        };
+        requestAnimationFrame(parralax);
 
-        var thresholdSets = [];
-
-        for (var i = 0; i <= 1; i += 0.01) {
-            thresholdSets.push(i);
+        function parralax() {
+            for (var i = 0; i < observables.length; i++) {
+                var ratio_parralax = observables[i].dataset.parralax;
+                observables[i].style.transform = 'translateY(' + observables[i].getBoundingClientRect().top / ratio_parralax + 'px)';
+            }
+            requestAnimationFrame(parralax);
         }
 
-        var parallax = function parallax(event, observer) {
-            var target = event[0].target;
-            var ratio = event[0].intersectionRatio * 100;
-
-            if (ratio > 0) {
-                target.style.transform = "translateY(" + ratio + "px)";
-            }
-        };
-
-        var parallaxInverse = function parallaxInverse(event, observer) {
-            var target = event[0].target;
-            var ratio = event[0].intersectionRatio * 40;
-            console.log(ratio);
-            if (ratio > 0) {
-                target.style.transform = "translateY(-" + ratio + "px)";
-            }
-        };
-
-        observables.forEach(function (observable, i) {
-            options.threshold = thresholdSets;
-            var observer = '';
-            if (observable.classList.contains(queryString + "--parallax")) {
-                observer = new IntersectionObserver(parallax, options);
-            } else if (observable.classList.contains(queryString + "--parallax-inverse")) {
-                observer = new IntersectionObserver(parallaxInverse, options);
-            }
-            observer.observe(observable);
-        });
+        // const options = {
+        //     root: null,
+        //     rootMargin: '0px',
+        //     threshold: [],
+        // }
+        //
+        //
+        // let thresholdSets = []
+        //
+        // for (let i=0; i<=1; i+= 0.01) {
+        //     thresholdSets.push(i)
+        // }
+        //
+        // const parallax = (event, observer) => {
+        //     const target = event[0].target
+        //     const ratio = (event[0].boundingClientRect.top / 5)
+        //
+        //     console.log(event[0].boundingClientRect.top)
+        //
+        //     if(ratio > 0) {
+        //         target.style.transform = `translateY(${ratio}px)`
+        //     }
+        // }
+        //
+        //
+        //
+        // const parallaxInverse = (event, observer) => {
+        //     const target = event[0].target
+        //     const ratio = event[0].intersectionRatio * 40
+        //     console.log(ratio)
+        //     if(ratio > 0) {
+        //         target.style.transform = `translateY(-${ratio}px)`
+        //     }
+        //
+        // }
+        //
+        //
+        //
+        // observables.forEach((observable, i) => {
+        //         options.threshold = thresholdSets
+        //         let observer = ''
+        //         if (observable.classList.contains(`${queryString}--parallax`)) {
+        //             observer = new IntersectionObserver(parallax, options)
+        //         } else if (observable.classList.contains(`${queryString}--parallax-inverse`)) {
+        //             observer = new IntersectionObserver(parallaxInverse, options)
+        //         }
+        //
+        //
+        //         observer.observe(observable)
+        // })
+        //
+        //
+        //
+        //
     }, {}] }, {}, [1]);

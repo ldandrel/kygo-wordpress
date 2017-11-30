@@ -9,16 +9,17 @@ function tour_init ()
         tour_dates[i].classList.add('active-' + (i + 1))
     }
     if (window.innerWidth < 960){
-        setInterval(() => {change_date()}, 1000)
+        let interval_tour = setInterval(() => {change_date()}, 1000)
     } else {
-        setInterval(() => {change_date()}, 3000)
+        let interval_tour = setInterval(() => {change_date()}, 3000)
     }
 
     window.addEventListener('resize', () => {
+        clearInterval(interval_tour)
         if (window.innerWidth < 960){
-            setInterval(() => {change_date()}, 1000)
+            let interval_tour = setInterval(() => {change_date()}, 1000)
         } else {
-            setInterval(() => {change_date()}, 3000)
+            let interval_tour = setInterval(() => {change_date()}, 3000)
         }
     })
 }

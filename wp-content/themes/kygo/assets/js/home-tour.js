@@ -23,22 +23,23 @@
                 tour_dates[i].classList.add('active-' + (i + 1));
             }
             if (window.innerWidth < 960) {
-                setInterval(function () {
+                var _interval_tour = setInterval(function () {
                     change_date();
                 }, 1000);
             } else {
-                setInterval(function () {
+                var _interval_tour2 = setInterval(function () {
                     change_date();
                 }, 3000);
             }
 
             window.addEventListener('resize', function () {
+                clearInterval(interval_tour);
                 if (window.innerWidth < 960) {
-                    setInterval(function () {
+                    var _interval_tour3 = setInterval(function () {
                         change_date();
                     }, 1000);
                 } else {
-                    setInterval(function () {
+                    var _interval_tour4 = setInterval(function () {
                         change_date();
                     }, 3000);
                 }
