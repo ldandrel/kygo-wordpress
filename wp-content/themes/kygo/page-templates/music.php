@@ -30,10 +30,12 @@ $songs = get_posts(array(
     <?php
         $timeline = [];
         foreach($songs as $song) {
-            array_push($timeline, get_field('date'));
-            var_dump(get_field('date'));
 
+            $date = get_field('date', $song->ID);
+            array_push($timeline, $date);
         }
+
+        array_unique($timeline);
     ?>
 
     <ul>
