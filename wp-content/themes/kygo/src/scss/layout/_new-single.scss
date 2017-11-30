@@ -26,9 +26,23 @@
 
   .single-new__content{
     padding:0 24px;
+    margin:50px 0;
+
+    @include responsive($md){
+      margin-top: 65px;
+    }
 
     iframe {
       margin: 50px auto;
+    }
+
+    a:not('.btn-kygo'){
+      color:$main-color;
+      text-decoration: underline;
+
+      &:hover{
+        color:$btn-color-hover;
+      }
     }
 
     @include responsive($md){

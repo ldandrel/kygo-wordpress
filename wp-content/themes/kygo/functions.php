@@ -104,4 +104,12 @@ require get_template_directory() . '/inc/theme_settings.php';
 require get_template_directory() . '/inc/language.php';
 
 
+/*
+ * Shortcodes
+ */
+require get_template_directory() . '/inc/shortcodes.php';
+
+
+
+
 

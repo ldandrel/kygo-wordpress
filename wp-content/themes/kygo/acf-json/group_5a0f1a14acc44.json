@@ -23,6 +23,26 @@
             "maxlength": ""
         },
         {
+            "key": "field_5a1fd0e7a7094",
+            "label": "Artist description",
+            "name": "artist_description",
+            "type": "text",
+            "value": null,
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5a0f1a37e2b7b",
             "label": "Main color",
             "name": "main_color_",
@@ -104,5 +124,9 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
+<<<<<<< HEAD
     "modified": 1512047773
+=======
+    "modified": 1512034550
+>>>>>>> 6beb1d5a90b808746e34723487bccc2131e2527a
 }
