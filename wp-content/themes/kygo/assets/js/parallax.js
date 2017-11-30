@@ -30,7 +30,8 @@
 
         var parallax = function parallax(event, observer) {
             var target = event[0].target;
-            var ratio = event[0].intersectionRatio * 40;
+            var ratio = event[0].intersectionRatio * 100;
+
             if (ratio > 0) {
                 target.style.transform = "translateY(" + ratio + "px)";
             }

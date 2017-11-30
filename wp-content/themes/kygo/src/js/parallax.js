@@ -18,10 +18,12 @@ for (let i=0; i<=1; i+= 0.01) {
 
 const parallax = (event, observer) => {
     const target = event[0].target
-    const ratio = event[0].intersectionRatio * 40
+    const ratio = event[0].intersectionRatio * 100
+
     if(ratio > 0) {
         target.style.transform = `translateY(${ratio}px)`
     }
+
 }
 
 

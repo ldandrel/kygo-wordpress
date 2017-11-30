@@ -64,7 +64,7 @@
           z-index: -1;
 
           @include responsive($lg) {
-            top: 0px;
+            top: -60px;
             left: 40px;
           }
         }

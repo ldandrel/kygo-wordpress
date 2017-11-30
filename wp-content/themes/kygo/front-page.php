@@ -6,11 +6,11 @@
 
 
 <section class="landing">
-    <div class="landing__title">
+    <div class="landing__title m-object m-object--parallax-title">
         <h1><?php the_field('artist_name', 'option'); ?></h1>
     </div>
 
-    <div class="landing__circle circle"></div>
+    <div class="landing__circle circle m-object m-object--parallax-title"></div>
 
     <div class="landing__portrait">
         <img src="<?= get_template_directory_uri() ?>/assets/img/portrait_kygo.png" alt="portrait-kygo">
