@@ -4,6 +4,14 @@
  */
 get_header();
 
+$songs = get_posts(array(
+    'post_type' => 'song',
+    'posts_per_page' => -1,
+    'meta_key' => 'date',
+    'orderby' => 'meta_value',
+    'order' => 'DESC'
+));
+
 ?>
 
 <section class="header-music">
@@ -18,8 +26,22 @@ get_header();
     </div>
 </section>
 
-<div class="theme">
+<div class="timeline">
+    <?php
+        $timeline = [];
+        foreach($songs as $song) {
+            array_push($timeline, get_field('date'));
+            var_dump(get_field('date'));
 
+        }
+    ?>
+
+    <ul>
+        <li>2017</li>
+        <ul>
+            <li>SEP.</li>
+        </ul>
+    </ul>
 </div>
 
 
