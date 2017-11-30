@@ -7,6 +7,33 @@
   .footer__newsletter {
     width: 50%;
     background: white;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    .footer__email-form {
+      box-shadow: $box-shadow;
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      width: 320px;
+      margin-top: 30px;
+    }
+
+    .footer__email-input {
+      padding: 15px 20px;
+      border: none;
+      width: 100%;
+    }
+
+    .footer__submit-input {
+      padding: 15px 20px;
+      background: $black;
+      border: none;
+      height: 100%;
+    }
   }
 
   .footer__socials {
@@ -25,8 +52,9 @@
       li {
         padding:0 12.5px;
       }
+
        i {
-        color:$white;
+         color:$white;
 
          &:hover {
            color:$main-color;
@@ -57,8 +85,6 @@
           padding: 0px 40px 0px 0px;
         }
       }
-
-
 
       @include responsive($md) {
         bottom: 27px;
