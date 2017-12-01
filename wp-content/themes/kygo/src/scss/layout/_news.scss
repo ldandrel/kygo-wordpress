@@ -24,7 +24,6 @@
       padding: 100px 10vw;
     }
 
-
     .news-header__left {
       display: inline-block;
       width: calc(100% - 24px);
@@ -75,11 +74,11 @@
       display: inline-block;
       margin-top: 62px;
 
-      @include responsive($sm){
+      @include responsive($sm) {
         width: 60%;
       }
 
-      @include responsive($md){
+      @include responsive($md) {
         width: 46%;
       }
 
@@ -87,7 +86,7 @@
         margin-top: 27px;
       }
 
-      .news-header__date{
+      .news-header__date {
         margin: 25px 0 45px 0;
       }
     }

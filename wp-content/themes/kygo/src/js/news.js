@@ -1,4 +1,3 @@
-
 const io = new IntersectionObserver(entries => {
     if(entries[0].intersectionRatio !== 0) {
         ajaxNews()
@@ -8,9 +7,8 @@ const footer = document.querySelector('footer')
 io.observe(footer)
 
 let page = 1
-
+let lastRequest = false
 function ajaxNews() {
-    let lastRequest = false
 
     console.log(lastRequest)
 
@@ -30,6 +28,7 @@ function ajaxNews() {
             loader.style.display = 'none'
             return response.json().then((json) => {
                 let grid = document.querySelector('.news-list')
+                console.log(json.length < 10)
                 if (json.length < 10) {
                     lastRequest = true
                 }

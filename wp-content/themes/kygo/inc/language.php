@@ -9,6 +9,11 @@ if (function_exists('pll_register_string')) {
     pll_register_string('Tour Date', 'tour date');
 
     /*
+     * Music
+     */
+    pll_register_string('Clip', 'clip');
+
+    /*
      * News
      */
     pll_register_string('News', 'news');

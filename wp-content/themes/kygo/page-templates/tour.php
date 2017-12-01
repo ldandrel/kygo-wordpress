@@ -52,10 +52,7 @@ $query = new WP_Query(array(
     </div>
 </section>
 
-
-
 <?php wp_reset_query(); ?>
-
 
 <section class="tour">
 

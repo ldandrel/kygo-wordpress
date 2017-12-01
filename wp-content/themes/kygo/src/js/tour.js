@@ -60,6 +60,7 @@ class Tour {
             result.show.forEach((show) => {
                 this.update(show)
             })
+
         })
 
 

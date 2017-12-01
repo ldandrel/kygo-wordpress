@@ -4,8 +4,6 @@
  */
 get_header();
 
-
-
 $songs = get_posts(array(
     'post_type' => ['song', 'award'],
     'posts_per_page' => -1,
@@ -13,7 +11,6 @@ $songs = get_posts(array(
     'orderby' => 'meta_value',
     'order' => 'DESC'
 ));
-
 ?>
 
 <section class="header-music">
@@ -28,55 +25,16 @@ $songs = get_posts(array(
     </div>
 </section>
 
-<section class="timeline-container">
-    <div class="timeline__prev"><img src="<?= get_template_directory_uri() ?>/assets/img/prev.svg" alt="prev"></div>
-    <div class="timeline">
-        <ul>
-            <?php
-                $timeline = [];
-                foreach($songs as $song) {
-
-                    $date = strftime('%b,%Y', strtotime(get_field('date', $song->ID, false)));
-                    array_push($timeline, $date);
-                }
-
-                $timeline = array_unique($timeline);
-                $year_already = 0;
-                $first = true;
-
-                $index = 0;
-
-                foreach ($timeline as $date):
-
-                    $explode = explode(',', $date);
-                    $year = $explode[1];
-                    $month = $explode[0];
-
-                    $index++;
-
-
-                    if ($year != $year_already): ?>
-                        <?= (!$first ? '</li></ul>' : ''); $first = false; ?>
-                        <li class="timeline-year <?= $index != 1 ?: 'active'  ?>"><?= $year; ?>
-                        <ul class="timeline-month">
-                    <?php $year_already = $year; endif; ?>
-                            <li><?= $month;?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <div class="timeline__next"><img src="<?= get_template_directory_uri() ?>/assets/img/next.svg" alt="next"></div>
-</section>
 
 
 
 <section class="content-music">
 <?php foreach ($songs as $song): ?>
 
-
     <?php $type = get_field('type', $song->ID); $taxonomy = get_term($type); ?>
 
     <?php if($taxonomy->slug == 'album'): $image = get_field('picture', $song->ID); ?>
-    <div class="song album">
+    <div class="song album music-section">
         <div class="news-header">
             <div class="news-header__left">
                 <div class="news-header__image-container">
@@ -115,14 +73,39 @@ $songs = get_posts(array(
         </div>
     </div>
     <?php elseif($taxonomy->slug == 'single'): ?>
-        <div>signle</div>
+        <div class="single music-section">
+            <div class="news-header">
+                <p class="single__caption caption">Single</p>
+                <div class="news-header__left">
+                    <div class="news-header__image-container">
+                        <div class="new-header__left-backgroud m-object" data-parralax="5"></div>
+
+                        <?php if( !empty( get_field('picture', $song->ID)['url'] ) ): ?>
+                            <div class="news-header__image">
+                                <div>
+                                    <img src="<?= get_field('picture', $song->ID)['url']; ?>" alt="<?= get_field('picture', $song->ID)['title']; ?>">
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="news-header__right">
+                        <h2 class="news-header__title"><?= get_the_title( $song->ID ); ?></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     <?php elseif($taxonomy->slug == 'clip'): ?>
-        <div>clip</div>
+        <div class="clip music-section">
+            <p class="clip__caption caption"><?php pll_e('clip'); ?></p>
+            <h2 class="clip__title"><?= get_the_title($song->ID) ?></h2>
+            <div class="clip__video"><?php the_field('url_clip', $song->ID); ?></div>
+        </div>
     <?php elseif(is_null($taxonomy->slug)): //award ?>
-        <div class="award">
+        <div class="award music-section">
             <div class="award-content">
                 <div class="award-content__title">
-                    Nomination
+                    <?= get_field('result', $song->ID) ?>
                 </div>
                 <div class="award-content__award">
                    <?= get_the_title($song->ID); ?>

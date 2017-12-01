@@ -199,17 +199,18 @@
 }
 
 .header--navigation-expanded{
-  height: 100vh;
+  height: calc(100vh + 80px);
   overflow: hidden;
 
   .header--mobile{
     position: relative;
+
+
     nav {
       width: 100vw;
       display: inherit;
       height: calc(100vh - 80px);
       text-align: center;
-
 
       ul {
         display: flex;

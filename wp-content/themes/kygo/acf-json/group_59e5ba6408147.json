@@ -89,7 +89,7 @@
                 "id": ""
             },
             "display_format": "d\/m\/Y",
-            "return_format": "Y, m",
+            "return_format": "d\/m\/Y",
             "first_day": 1
         },
         {
@@ -276,7 +276,7 @@
             "key": "field_5a0bfe1594506",
             "label": "URL Youtube Clip",
             "name": "url_clip",
-            "type": "url",
+            "type": "oembed",
             "value": null,
             "instructions": "",
             "required": 1,
@@ -294,8 +294,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": ""
+            "width": "",
+            "height": ""
         }
     ],
     "location": [
@@ -331,5 +331,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1512062373
+    "modified": 1512088784
 }

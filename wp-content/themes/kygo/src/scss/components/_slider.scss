@@ -77,7 +77,7 @@
   .tour-photo-controls {
     position: absolute;
     margin-top: 10px;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     height: 26px;
@@ -85,6 +85,7 @@
     left: 20px;
 
     @include responsive($md){
+      width: 100%;
       bottom: 10px;
       left: 40px;
     }
