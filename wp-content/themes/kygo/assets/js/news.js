@@ -13,7 +13,6 @@
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
-
         var io = new IntersectionObserver(function (entries) {
             if (entries[0].intersectionRatio !== 0) {
                 ajaxNews();
@@ -23,9 +22,8 @@
         io.observe(footer);
 
         var page = 1;
-
+        var lastRequest = false;
         function ajaxNews() {
-            var lastRequest = false;
 
             console.log(lastRequest);
 
@@ -45,6 +43,7 @@
                     loader.style.display = 'none';
                     return response.json().then(function (json) {
                         var grid = document.querySelector('.news-list');
+                        console.log(json.length < 10);
                         if (json.length < 10) {
                             lastRequest = true;
                         }
