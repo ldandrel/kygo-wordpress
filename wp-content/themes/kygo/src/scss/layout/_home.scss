@@ -313,7 +313,7 @@
     .tour__slider {
       width: 80%;
       height: 100%;
-      margin-left:20%;
+      margin-left: 20%;
 
       @include responsive($sm){
         width: 60%;
@@ -345,10 +345,11 @@
 
         @include responsive($md){
           max-height: 525px;
+          margin-top: 90px;
         }
 
         .slider-backgroud {
-          margin-top: 90px;
+          margin-top: 50px;
         }
 
       }
@@ -425,6 +426,7 @@
 
   .news-title{
     text-align: center;
+    margin-bottom: 50px;
   }
 
   .news__more{
