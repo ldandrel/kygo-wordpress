@@ -16,7 +16,54 @@ function kygo_script_enqueue() {
     }
 
     if( is_page( 'Tour' ) ) {
+        $query = new WP_Query(array(
+            'post_type' => 'tour',
+            'post_status' => 'publish',
+            'numberposts' => -1
+        ));
+
+        $json = array();
+
+        foreach ($query->posts as $tour){
+
+            $id = $tour->ID;
+
+
+
+            while ( have_rows('locations', $id) ) {
+                the_row();
+                $city = get_sub_field('city');
+                $type = get_sub_field('type');
+                $show = array();
+
+                if (have_rows('show')) {
+                    while (have_rows('show')) {
+                        the_row();
+                        array_push($show, [
+                            'city' => $city,
+                            'date' => get_sub_field('date'),
+                            'theather' => get_sub_field('theater'),
+                            'sold_out' => get_sub_field('sold_out'),
+                            'link' => get_sub_field('tickets'),
+                        ]);
+
+
+                    }
+                }
+
+
+                array_push($json, [
+                    'city' => $city,
+                    'show' => $show,
+                    'type' => get_term($type)->slug
+                ]);
+            }
+
+        }
+
         wp_enqueue_script('js-tour', get_template_directory_uri() . '/assets/js/tour.js', array(), '1.0.0', true);
+        wp_localize_script('js-tour', 'data', json_encode($json));
+
         wp_enqueue_script('js-json', get_template_directory_uri() . '/assets/js/map.json', array(), '1.0.0', true);
         wp_enqueue_script('js-map', get_template_directory_uri() . '/assets/js/map.js', array(), '1.0.0', true);
     }
@@ -34,5 +81,6 @@ function kygo_script_enqueue() {
 }
 
 add_action( 'wp_enqueue_scripts', 'kygo_script_enqueue');
+
 
 

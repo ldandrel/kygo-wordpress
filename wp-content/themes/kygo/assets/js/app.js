@@ -13,6 +13,7 @@
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
+
         var close_alert_button = document.querySelector('.header__alert-close');
 
         //close alert band in header

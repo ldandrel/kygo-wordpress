@@ -11,9 +11,6 @@ $query = new WP_Query(array(
     'post_status' => 'publish',
     'numberposts' => -1
 ));
-
-$json = json_encode($query->posts)
-
 ?>
 
 <section class="map-container">
@@ -71,10 +68,10 @@ $json = json_encode($query->posts)
         </div>
         <div class="tour__search-filter">
             <ul>
-                <li class="active">All</li>
-                <li>Concerts</li>
-                <li>Festivals</li>
-                <li>Showcases</li>
+                <li data-filter="all" class="active">All</li>
+                <li data-filter="concerts">Concerts</li>
+                <li data-filter="festival">Festivals</li>
+                <li data-filter="showcase">Showcases</li>
             </ul>
         </div>
     </div>
@@ -101,7 +98,7 @@ $json = json_encode($query->posts)
            <?php endwhile; ?>
        <?php endforeach; ?>
    </div>
-</section>
 
+</section>
 
 <?php get_footer() ?>

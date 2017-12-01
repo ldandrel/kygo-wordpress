@@ -1,3 +1,5 @@
+
+
 const close_alert_button = document.querySelector('.header__alert-close')
 
 //close alert band in header
