@@ -164,11 +164,7 @@
     <div class="music__banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
         <div class="music-backgroud m-object" data-parralax="4"></div>
         <div class="music__content">
-            <h2><?= get_field('title-section-3'); ?></h2>
-            <p>
-                <?= get_field('description-section-3'); ?>
-            </p>
-
+            <h2>Music.</h2>
             <div class="music__see-more">
                 <a href="<?= get_permalink( get_page_by_title( 'music' ) ) ?>" class="btn-kygo">
                     See Kygo's music
