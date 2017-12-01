@@ -6,7 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php wp_title() ?></title>
+
+    <style>
+        :root {
+            --main-color: <?php the_field('main_color', 'option'); ?>;
+            --main-btn-hover: <?php the_field('main_btn_hover', 'option'); ?>;
+            --main-color-hover: <?php the_field('main_color_hover', 'option'); ?>;
+
+        }
+    </style>
     <?php wp_head(); ?>
+
 
 </head>
 <body>

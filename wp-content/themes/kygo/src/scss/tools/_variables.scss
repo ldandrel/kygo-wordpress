@@ -11,11 +11,11 @@ $white: #ffffff;
 $black: #000000;
 $gray: rgba(51, 51, 51, 0.6);
 
-$main-color: #14D5B4;
-$btn-color:#14D5B4;
-$btn-color-hover: #14b695;
+$main-color: var(--main-color);
+$btn-color:var(--main-color);
+$btn-color-hover: var(--main-btn-hover);
 
-$main-color-hover: #28EFCC;
+$main-color-hover: var(--main-color-hover);
 $text-color:rgba(0, 0, 0, 0.6);
 $border-color:rgba(0, 0, 0, 0.2);
 $border-color-bis:rgba(0, 0, 0, 0.4);
@@ -28,7 +28,7 @@ $footer: rgba(0, 0, 0, 0.4);
 
 $animation-bezier: cubic-bezier(.6,.0,.4,1);
 
-$gradient: linear-gradient(135deg, #06DEAF 0%,#14D5B4 50%, #14b695 100%);
+$gradient: linear-gradient(135deg,  var(--main-color) 50%, var(--main-color-hover) 100%);
 
 // Box shadow
 $box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);;
