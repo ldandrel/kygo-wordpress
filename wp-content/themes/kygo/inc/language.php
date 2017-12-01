@@ -23,6 +23,5 @@ if (function_exists('pll_register_string')) {
     */
     pll_register_string('Follow', 'follow');
     pll_register_string('Subscribe', 'subscribe');
-    pll_register_string('Enter your email adress', 'email input');
 
 }

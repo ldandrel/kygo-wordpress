@@ -13,19 +13,28 @@
         s(r[o]);
     }return s;
 })({ 1: [function (require, module, exports) {
+
+        var footer = document.querySelector('footer');
+        var grid = document.querySelector('.news-list');
+        var cards = grid.querySelectorAll('.new__cards');
         var io = new IntersectionObserver(function (entries) {
             if (entries[0].intersectionRatio !== 0) {
                 ajaxNews();
             }
         });
-        var footer = document.querySelector('footer');
+
         io.observe(footer);
+
+        console.log(cards);
+        cards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                document.location.href = card.getAttribute('data-src');
+            });
+        });
 
         var page = 1;
         var lastRequest = false;
         function ajaxNews() {
-
-            console.log(lastRequest);
 
             if (!lastRequest) {
                 page++;
@@ -42,8 +51,6 @@
                 }).then(function (response) {
                     loader.style.display = 'none';
                     return response.json().then(function (json) {
-                        var grid = document.querySelector('.news-list');
-                        console.log(json.length < 10);
                         if (json.length < 10) {
                             lastRequest = true;
                         }

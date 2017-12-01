@@ -109,3 +109,18 @@ input:focus {
 
 }
 
+.error-404{
+	width: 100vw;
+	height: calc(100vh - 120px);
+	margin-top: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@include responsive($md){
+		height: calc(100vh - 150px);
+		margin-top: 150px;
+
+	}
+}

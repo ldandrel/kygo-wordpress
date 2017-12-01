@@ -1,16 +1,26 @@
+
+const footer = document.querySelector('footer')
+const grid = document.querySelector('.news-list')
+const cards = grid.querySelectorAll('.new__cards')
 const io = new IntersectionObserver(entries => {
     if(entries[0].intersectionRatio !== 0) {
         ajaxNews()
     }
 })
-const footer = document.querySelector('footer')
+
 io.observe(footer)
+
+console.log(cards)
+cards.forEach((card) => {
+    card.addEventListener('click', () => {
+        document.location.href = card.getAttribute('data-src')
+    })
+})
 
 let page = 1
 let lastRequest = false
 function ajaxNews() {
 
-    console.log(lastRequest)
 
     if(!lastRequest) {
         page++
@@ -27,8 +37,6 @@ function ajaxNews() {
         }).then((response) => {
             loader.style.display = 'none'
             return response.json().then((json) => {
-                let grid = document.querySelector('.news-list')
-                console.log(json.length < 10)
                 if (json.length < 10) {
                     lastRequest = true
                 }
@@ -53,5 +61,5 @@ function ajaxNews() {
             console.log('Error with Ajax Call, sorry');
         });
     }
-
 }
+

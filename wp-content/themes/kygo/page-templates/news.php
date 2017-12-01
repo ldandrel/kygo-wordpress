@@ -31,6 +31,7 @@
             <div class="news-header">
                 <div class="news-header__left">
                     <div class="news-header__image-container">
+                        <div class="new-header__left-backgroud m-object" data-parralax="5"></div>
                         <img class="news-header__image" src="<?= get_the_post_thumbnail_url(); ?>" alt="thumbnail">
                     </div>
                 </div>
@@ -46,8 +47,8 @@
             <ul class="news-list">
             <?php endif; ?>
 
-                <li class="new__cards">
-                    <div class="card" data-src="<?php the_permalink(); ?>">
+                <li class="new__cards" data-src="<?php the_permalink(); ?>">
+                    <div class="card">
                         <div class="new__img" style="background-image: url(<?= get_the_post_thumbnail_url(); ?>)"></div>
                         <div class="new__content">
                             <div class="new__date date"><?= strftime("%d %b. %Y",strtotime(get_post()->post_date)); ?></div>
