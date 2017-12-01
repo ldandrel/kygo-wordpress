@@ -1,8 +1,7 @@
 	<footer class="footer">
         <div class="footer__newsletter">
             <h2><?php pll_e('subscribe') ?> <?php the_field('artist_name', 'option'); ?>.</h2>
-                      <?= do_shortcode('[mc4wp_form id="480"]') ?>
-
+            <?= do_shortcode('[mc4wp_form id="632"]') ?>
 
         </div>
 
