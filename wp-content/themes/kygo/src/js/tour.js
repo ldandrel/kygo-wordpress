@@ -14,8 +14,6 @@ class Tour {
 
         this.$el.search.addEventListener('input', () => {
             let search = this.$el.search.value
-
-
         })
     }
 }

@@ -55,10 +55,7 @@ $json = json_encode($query->posts)
     </div>
 </section>
 
-
-
 <?php wp_reset_query(); ?>
-
 
 <section class="tour">
 
@@ -102,6 +99,5 @@ $json = json_encode($query->posts)
        <?php endforeach; ?>
    </div>
 </section>
-
 
 <?php get_footer() ?>
