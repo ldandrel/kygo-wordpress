@@ -166,8 +166,8 @@
         <div class="music__content">
             <h2>Music.</h2>
             <p>
-                <?php pll_e(' Kygo has all the ingredients for EDM superstardom today, the craze for his music places him as one of the most popular artists of electronic music.
-Discover his marvelous music driven by his DJ artistic streak.') ?>
+                <?php pll_e('Kygo has all the ingredients for EDM superstardom today, the craze for his music places him as one of the most popular artists of electronic music.
+Discover his marvelous music driven by his DJ artistic streak.'); ?>
             </p>
             <div class="music__see-more">
                 <a href="<?= get_permalink( get_page_by_title( 'music' ) ) ?>" class="btn-kygo">
