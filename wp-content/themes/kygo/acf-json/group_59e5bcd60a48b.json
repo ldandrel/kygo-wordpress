@@ -24,7 +24,7 @@
                     "name": "display-last-news",
                     "type": "true_false",
                     "value": null,
-                    "instructions": "Select if you want or not display manually a song",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -135,6 +135,26 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5a2145d0880fe",
+                    "label": "Description",
+                    "name": "description-section-3",
+                    "type": "textarea",
+                    "value": null,
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
                 }
             ]
         }
@@ -166,5 +186,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1511772829
+    "modified": 1512130535
 }

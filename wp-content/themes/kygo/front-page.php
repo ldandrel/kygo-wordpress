@@ -164,9 +164,9 @@
     <div class="music__banner" style="background-image: url('<?= get_template_directory_uri() ?>/assets/img/kygo-music.jpeg')">
         <div class="music-backgroud m-object" data-parralax="4"></div>
         <div class="music__content">
-            <h2>Music.</h2>
+            <h2><?= get_field('title-section-3'); ?></h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur magni, odit quam quis voluptatem. Culpa ipsa itaque, maiores molestias nemo repellendus sapiente sit soluta temporibus tenetur veritatis voluptas voluptatem.
+                <?= get_field('description-section-3'); ?>
             </p>
 
             <div class="music__see-more">
